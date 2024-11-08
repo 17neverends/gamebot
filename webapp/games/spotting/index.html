@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/games/spotting/style.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Spotting Game</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="timer">
+        <span id="timer">00:00</span>
+    </div>
+<div class="container">
+    <div class="cell" id="cell1" onclick="swap(1)"></div>
+    <div class="cell" id="cell2" onclick="swap(2)"></div>
+    <div class="cell" id="cell3" onclick="swap(3)"></div>
+    <div class="cell" id="cell4" onclick="swap(4)"></div>
+    <div class="cell" id="cell5" onclick="swap(5)"></div>
+    <div class="cell" id="cell6" onclick="swap(6)"></div>
+    <div class="cell" id="cell7" onclick="swap(7)"></div>
+    <div class="cell" id="cell8" onclick="swap(8)"></div>
+    <div class="cell" id="cell9" onclick="swap(9)"></div>
+    <div class="cell" id="cell10" onclick="swap(10)"></div>
+    <div class="cell" id="cell11" onclick="swap(11)"></div>
+    <div class="cell" id="cell12" onclick="swap(12)"></div>
+    <div class="cell" id="cell13" onclick="swap(13)"></div>
+    <div class="cell" id="cell14" onclick="swap(14)"></div>
+    <div class="cell" id="cell15" onclick="swap(15)"></div>
+    <div class="cell" id="cell16" onclick="swap(16)"></div>
+</div>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Поздравляем!</h2>
+        <p id="resultMessage"></p>
+        <button id="newGameButton">Новая игра</button>
+    </div>
+</div>
+<div class="restart-button">
+    <button id="restart-button"></button>
+</div>
+<div id="popup" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h2>Добро пожаловать, <span id="player-name"></span>!</h2>
+        <div class="leaderboard" id="leaderboard">
+        </div>
+        <button id="start-game-button">Начать игру</button>
+    </div>
+</div>
+<script src="/games/spotting/main.js?v=2"></script>
+</body>
+</html>

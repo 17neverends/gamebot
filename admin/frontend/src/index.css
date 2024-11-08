@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --rs-toggle-checked-hover-bg: var(--rs-state-success) !important;
+  --rs-toggle-checked-bg: var(--rs-state-success) !important;
+  --rs-radio-tile-checked-color: var(--rs-state-success) !important;
+  --rs-input-focus-border: var(--rs-state-success) !important;
+  --rs-color-focus-ring: #649e6433 !important;
+  --rs-steps-state-finish: var(--rs-state-success) !important;
+  --rs-bg-active: var(--rs-state-success) !important;
+  --rs-btn-primary-bg: var(--rs-state-success) !important;
+  --rs-picker-value: var(--rs-state-success) !important;
+  --rs-picker-count-bg: var(--rs-state-success) !important;
+}
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.rs-form-control-label {
+  text-align: left;
+  font-weight: bold;
+  padding-bottom: 0.25rem;
+}
