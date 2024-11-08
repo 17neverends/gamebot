@@ -29,7 +29,7 @@ services:
 
   fastapi_admin:
     ports:
-      - 8000:8000
+      - 8001:8000
     build:
       context: .
       dockerfile: admin/Dockerfile
