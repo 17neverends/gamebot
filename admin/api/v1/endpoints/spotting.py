@@ -1,3 +1,4 @@
+from typing import Optional
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from tasks_shared.database_utils import get_session
