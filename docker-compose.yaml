@@ -12,6 +12,8 @@ services:
       - PYTHONUNBUFFERED=1
     depends_on:
       - db
+    networks:
+      - netweb
 
   fastapi_webapp:
     ports:
@@ -71,6 +73,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
+    networks:
+      - netweb
   
 volumes:
   postgres_data:
