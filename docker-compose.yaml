@@ -26,6 +26,8 @@ services:
       - PYTHONUNBUFFERED=1
     depends_on:
       - db
+    networks:
+      - netweb
 
   fastapi_admin:
     ports:
@@ -40,6 +42,8 @@ services:
       - PYTHONUNBUFFERED=1
     depends_on:
       - db
+    networks:
+      - netweb
   
   nginx:
     image: nginx:stable-alpine
@@ -52,6 +56,9 @@ services:
       - /home/gamebot/certificate.key:/home/gamebot/certificate.key
     depends_on:
       - fastapi_webapp
+      - fastapi_admin
+    networks:
+      - netweb
 
   db:
     image: postgres:latest
@@ -66,3 +73,7 @@ services:
   
 volumes:
   postgres_data:
+
+networks:
+  netweb:
+    external: true
