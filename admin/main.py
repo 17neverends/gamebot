@@ -6,8 +6,8 @@ from admin.api.v1.routes import router
 from admin.api.v1.view import router as views
 
 app = FastAPI()
-app.mount("/assets", StaticFiles(directory="app/dist/assets"), name="assets")
-app.mount("/static", StaticFiles(directory="app/dist"), name="static")
+app.mount("/assets", StaticFiles(directory="/app/dist/assets"), name="assets")
+app.mount("/static", StaticFiles(directory="/app/dist"), name="static")
 origins = [
     "*"
 ]
