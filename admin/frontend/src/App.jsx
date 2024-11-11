@@ -10,11 +10,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <RoleProvider>
           <Routes>
             <Route path="/database" element={<MainLayout/>} />
           </Routes>
-        </RoleProvider>
       </BrowserRouter>
     </div>
   );
