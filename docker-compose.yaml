@@ -56,9 +56,6 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - /home/gamebot/certificate.crt:/home/gamebot/certificate.crt
       - /home/gamebot/certificate.key:/home/gamebot/certificate.key
-    depends_on:
-      - fastapi_webapp
-      - fastapi_admin
     networks:
       - netweb
 
