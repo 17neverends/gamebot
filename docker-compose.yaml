@@ -33,19 +33,13 @@ services:
 
   fastapi_admin:
     ports:
-      - 8001:8000
+      - 8000:8000
     build:
-      context: ./admin
+      context: .
       dockerfile: admin/Dockerfile
     volumes:
-      - ./admin:/app
-      - ./dist:/app/dist
-      - ./tasks_shared:/app/tasks_shared
-      - ./settings.py:/app/settings.py
-      - ./.env:/app/.env
-      - ./utils:/app/utils
-
-    command: uvicorn main:app --host 0.0.0.0 --port 8000
+      - .:/app
+    command: uvicorn admin.main:app --host 0.0.0.0 --port 8000
     environment:
       - PYTHONUNBUFFERED=1
     depends_on:
