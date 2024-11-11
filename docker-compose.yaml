@@ -15,21 +15,21 @@ services:
     networks:
       - netweb
 
-  fastapi_webapp:
-    ports:
-      - 8000:8000
-    build:
-      context: .
-      dockerfile: webapp/Dockerfile
-    volumes:
-      - .:/app
-    command: uvicorn webapp.main:app --host 0.0.0.0 --port 8000
-    environment:
-      - PYTHONUNBUFFERED=1
-    depends_on:
-      - db
-    networks:
-      - netweb
+  # fastapi_webapp:
+  #   ports:
+  #     - 8000:8000
+  #   build:
+  #     context: .
+  #     dockerfile: webapp/Dockerfile
+  #   volumes:
+  #     - .:/app
+  #   command: uvicorn webapp.main:app --host 0.0.0.0 --port 8000
+  #   environment:
+  #     - PYTHONUNBUFFERED=1
+  #   depends_on:
+  #     - db
+  #   networks:
+  #     - netweb
 
   fastapi_admin:
     ports:
