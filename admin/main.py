@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.v1.routes import router
-from api.v1.view import router as views
+from admin.api.v1.routes import router
+from admin.api.v1.view import router as views
 
 app = FastAPI()
 app.mount("/assets", StaticFiles(directory="/app/dist/assets"), name="assets")
