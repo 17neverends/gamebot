@@ -38,10 +38,8 @@ services:
       context: .
       dockerfile: admin/Dockerfile
     volumes:
-      - .:/app
-      - /home/gamebot/dist/assets:/home/gamebot/dist/assets
-      - /home/gamebot/dist/assets/index.html:/home/gamebot/dist/assets/index.html
-
+      - ./admin:/app
+      - ./dist:/app/dist
     command: uvicorn admin.main:app --host 0.0.0.0 --port 8000
     environment:
       - PYTHONUNBUFFERED=1
