@@ -88,4 +88,6 @@ class UserRepository:
 
         results = sessions.scalars().all()
         if results:
-            return [User.model_validate(result).model_dump() for result in results]
+            return [UserSchema.model_validate(result).model_dump() for result in results]
+
+        return []

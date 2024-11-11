@@ -55,3 +55,5 @@ class SpottingRepository:
         results = sessions.scalars().all()
         if results:
             return [SpottingInDB.model_validate(result).model_dump() for result in results]
+
+        return []

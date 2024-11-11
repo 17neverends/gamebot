@@ -53,3 +53,4 @@ class SudokuRepository:
         results = sessions.scalars().all()
         if results:
             return [SudokuInDB.model_validate(result).model_dump() for result in results]
+        return []
