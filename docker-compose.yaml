@@ -35,12 +35,12 @@ services:
     ports:
       - 8001:8000
     build:
-      context: .
+      context: ./admin
       dockerfile: admin/Dockerfile
     volumes:
       - ./admin:/app
       - ./dist:/app/dist
-    command: uvicorn admin.main:app --host 0.0.0.0 --port 8000
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
     environment:
       - PYTHONUNBUFFERED=1
     depends_on:
