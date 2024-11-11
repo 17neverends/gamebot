@@ -7,7 +7,7 @@ from .endpoints import (
 
 
 router = APIRouter(
-    prefix="/admin/api/v1",
+    prefix="/api/v1",
 )
 
 router.include_router(user.router)
