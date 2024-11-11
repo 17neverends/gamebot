@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from tasks_shared.database_utils import get_session
 from tasks_shared.models.user.repository import UserRepository
-from admin.utils.time_converter import convert_string_to_datetime
+from utils.time_converter import convert_string_to_datetime
 
 
 router = APIRouter(
