@@ -54,7 +54,7 @@ async def save_result(data: SpottingResult,
             result_time=data.result_time,
             entry_date=entry_date,
             device=request.headers.get("user-agent"),
-            language=tg_data.get("language"),
+            language=tg_data.get("language_code"),
         )
         print("\n\n\n\n", new_result, "\n\n\n\n")
     new_result = await spotting_repository.insert_data(create_model=new_result.model_dump())
