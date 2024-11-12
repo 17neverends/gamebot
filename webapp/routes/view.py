@@ -30,4 +30,12 @@ def spotting():
         ).read()
     )
 
+@router.get("/king", response_class=HTMLResponse)
+def spotting():
+    return HTMLResponse(
+        content=open(
+            "webapp/games/king/index.html", "r", encoding="utf-8"
+        ).read()
+    )
+
 
