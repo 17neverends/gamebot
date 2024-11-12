@@ -20,3 +20,14 @@ def spotting():
             "webapp/games/spotting/index.html", "r", encoding="utf-8"
         ).read()
     )
+
+
+@router.get("/match", response_class=HTMLResponse)
+def spotting():
+    return HTMLResponse(
+        content=open(
+            "webapp/games/match/index.html", "r", encoding="utf-8"
+        ).read()
+    )
+
+
