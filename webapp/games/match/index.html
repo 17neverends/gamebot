@@ -22,7 +22,7 @@
     <script>
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("ServiceWorker.js");
+          navigator.serviceWorker.register("/games/match/ServiceWorker.js");
         }
       });
 
@@ -57,11 +57,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/test.loader.js";
+      var loaderUrl = buildUrl + "/games/match//test.loader.js";
       var config = {
-        dataUrl: buildUrl + "/test.data",
-        frameworkUrl: buildUrl + "/test.framework.js",
-        codeUrl: buildUrl + "/test.wasm",
+        dataUrl: buildUrl + "/games/match//test.data",
+        frameworkUrl: buildUrl + "/games/match//test.framework.js",
+        codeUrl: buildUrl + "/games/match//test.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "CodeSoftix",
         productName: "Sweet Sugar Match 3",
