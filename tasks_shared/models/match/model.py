@@ -10,7 +10,6 @@ class Match(Base, TimestampMixin):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
-    total_time: Mapped[float | None] = mapped_column(nullable=True)
     entry_date: Mapped[datetime]
     device: Mapped[str] = mapped_column(nullable=True)
     language: Mapped[str] = mapped_column(nullable=True)
