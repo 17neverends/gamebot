@@ -26,7 +26,8 @@
           fetch("/match/save_result", {
               method: "POST",
               headers: {
-                  Authorization: window.Telegram.WebApp.initData
+                'Content-Type': 'application/json',
+                Authorization: window.Telegram.WebApp.initData
               },
               body: JSON.stringify({ 
                   entry_date: entry_date
