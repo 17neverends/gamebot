@@ -3,14 +3,18 @@ import { Tabs } from 'rsuite';
 import User from '../../tables/User';
 import Spotting from '../../tables/Spotting';
 import Sudoku from '../../tables/Sudoku';
+import Match from '../../tables/Match';
+import King from '../../tables/King';
 
 function MainLayout() {
-  const [activeTab, setActiveTab] = useState('client');
+  const [activeTab, setActiveTab] = useState('user');
 
   const adminTabs = [
     { key: 'user', title: 'Пользователи', component: <User /> },
     { key: 'sudoku', title: 'Судоку', component: <Sudoku /> },
     { key: 'spotting', title: '15', component: <Spotting /> },
+    { key: 'match', title: '3 в ряд', component: <Match /> },
+    { key: 'king', title: 'Кинг Конг', component: <King /> },
   ];
 
   return (

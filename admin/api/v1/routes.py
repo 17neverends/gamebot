@@ -2,7 +2,9 @@ from fastapi import APIRouter
 from .endpoints import (
     user,
     spotting,
-    sudoku
+    sudoku,
+    match,
+    king
 )
 
 
@@ -13,3 +15,5 @@ router = APIRouter(
 router.include_router(user.router)
 router.include_router(spotting.router)
 router.include_router(sudoku.router)
+router.include_router(match.router)
+router.include_router(king.router)
