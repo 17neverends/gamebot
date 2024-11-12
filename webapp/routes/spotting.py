@@ -57,6 +57,6 @@ async def save_result(data: SpottingResult,
             language=tg_data.get("language_code"),
         )
         print("\n\n\n\n", new_result, "\n\n\n\n")
-    new_result = await spotting_repository.insert_data(create_model=new_result.model_dump())
+        new_result = await spotting_repository.insert_data(create_model=new_result.model_dump())
     print("\n\n\n\n", new_result, "\n\n\n\n")
     return JSONResponse(content={"detail": "OK"})
