@@ -14,7 +14,6 @@ app.include_router(sudoku_router)
 
 app.mount("/games", StaticFiles(directory="webapp/games"), name="games")
 app.mount("/static", StaticFiles(directory="webapp/games/static"), name="static")
-app.mount("/", StaticFiles(directory="webapp/games/match"), name="match")
 
 
 app.add_middleware(
