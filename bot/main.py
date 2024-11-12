@@ -55,7 +55,7 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
                             isExpanded=True)
     ))
     builder.add(types.InlineKeyboardButton(
-                            text='3 в ряд', web_app=WebAppInfo(url="https://17neverends.github.io/test/", isExpanded=True)
+                            text='3 в ряд', web_app=WebAppInfo(url=f"{settings.domain}/match", isExpanded=True)
                         ))
     builder.add(types.InlineKeyboardButton(
                             text='Кинг Конг', web_app=WebAppInfo(url="https://17neverends.github.io/test2/", isExpanded=True)
