@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
           <Routes>
-            <Route path="/database" element={<MainLayout/>} />
+            <Route path="/admin/database" element={<MainLayout/>} />
           </Routes>
       </BrowserRouter>
     </div>

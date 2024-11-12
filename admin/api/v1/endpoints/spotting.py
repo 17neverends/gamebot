@@ -3,9 +3,8 @@ from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from tasks_shared.database_utils import get_session
 from tasks_shared.models.spotting.repository import SpottingRepository
-from datetime import datetime
-async def convert_string_to_datetime(dt: str) -> datetime:
-    return datetime.strptime(dt, "%Y-%m-%d")
+from admin.utils.time_converter import convert_string_to_datetime
+
 router = APIRouter(
     prefix="/spotting",
     tags=["spotting"],
