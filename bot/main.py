@@ -58,7 +58,7 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
                             text='3 в ряд', web_app=WebAppInfo(url=f"{settings.domain}/match", isExpanded=True)
                         ))
     builder.add(types.InlineKeyboardButton(
-                            text='Кинг Конг', web_app=WebAppInfo(url="https://17neverends.github.io/test2/", isExpanded=True)
+                            text='Кинг Конг', web_app=WebAppInfo(url=f"{settings.domain}/king", isExpanded=True)
                         ))
     await message.answer(
         "Открыть игру",
