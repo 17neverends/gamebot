@@ -57,11 +57,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/games/match/test.loader.js";
+      var serverPath = "games/match/";
+      var loaderUrl = serverPath + buildUrl + "/test.loader.js";
       var config = {
-        dataUrl: buildUrl + "/games/match/test.data",
-        frameworkUrl: buildUrl + "/games/match/test.framework.js",
-        codeUrl: buildUrl + "/games/match/test.wasm",
+        dataUrl: serverPath + buildUrl +  + "/test.data",
+        frameworkUrl: serverPath + buildUrl +  + "/test.framework.js",
+        codeUrl: serverPath + buildUrl +  + "/test.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "CodeSoftix",
         productName: "Sweet Sugar Match 3",
