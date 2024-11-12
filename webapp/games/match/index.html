@@ -22,18 +22,15 @@
     </div>
     <script>
       let entry_date = new Date().toISOString();
-      let startTime = Date.now();
-      window.addEventListener("beforeunload", function () {
+      window.addEventListener("DOMContentLoaded", function () {
           fetch("/match/save_result", {
               method: "POST",
               headers: {
                   Authorization: window.Telegram.WebApp.initData
               },
               body: JSON.stringify({ 
-                  total_time: (Date.now() - startTime) / 1000,
                   entry_date: entry_date
                }),
-              keepalive: true
           });
       });
       window.addEventListener("load", function () {

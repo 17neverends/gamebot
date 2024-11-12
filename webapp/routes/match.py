@@ -31,7 +31,6 @@ async def save_result(data: MatchInfo,
         entry_date = data.entry_date.replace(tzinfo=None)
         new_result = MatchCreate(
             user_id=user.id,
-            total_time=data.total_time,
             entry_date=entry_date,
             device=request.headers.get("user-agent"),
             language=tg_data.get("language_code"),

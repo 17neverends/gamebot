@@ -5,7 +5,6 @@ from typing import Optional
 
 class MatchCreate(BaseModel):
     user_id: int
-    total_time: Optional[float]
     entry_date: datetime
     device: Optional[str]
     language: Optional[str]
