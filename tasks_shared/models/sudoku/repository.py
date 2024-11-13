@@ -60,9 +60,8 @@ class SudokuRepository:
         try:
             stmt = await self.session.execute(
                 select(Sudoku).where(Sudoku.result_time == None,
-                                       Sudoku.moves_count == None,
-                                       Sudoku.entry_date == create_model.entry_date,
-                                       Sudoku.user_id == create_model.user_id)
+                                     Sudoku.entry_date == create_model.entry_date,
+                                     Sudoku.user_id == create_model.user_id)
             )
             result = stmt.scalars().first()
             if result:
