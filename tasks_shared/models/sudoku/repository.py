@@ -60,13 +60,13 @@ class SudokuRepository:
         try:
             stmt = await self.session.execute(
                 select(Sudoku).where(Sudoku.result_time == None,
-                                     Sudoku.entry_date == create_model.entry_date,
-                                     Sudoku.user_id == create_model.user_id)
+                                     Sudoku.entry_date == create_model.get("entry_date"),
+                                     Sudoku.user_id == create_model.get("user_id"))
             )
             result = stmt.scalars().first()
             if result:
-                result.result_time = create_model.result_time
-                result.level = create_model.level
+                result.result_time = create_model.get("result_time")
+                result.level = create_model.get("level")
                 await self.session.commit()
                 await self.session.refresh(result)
                 return SudokuInDB.model_validate(result).model_dump()
