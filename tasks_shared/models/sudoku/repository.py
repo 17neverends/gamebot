@@ -14,17 +14,17 @@ class SudokuRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
 
-    async def insert_data(self, create_model: SudokuCreate) -> SudokuInDB:
-        try:
-            new_record = Sudoku(**create_model)
-            self.session.add(new_record)
+    # async def insert_data(self, create_model: SudokuCreate) -> SudokuInDB:
+    #     try:
+    #         new_record = Sudoku(**create_model)
+    #         self.session.add(new_record)
 
-            await self.session.commit()
-            await self.session.refresh(new_record)
+    #         await self.session.commit()
+    #         await self.session.refresh(new_record)
 
-            return SudokuInDB.model_validate(new_record).model_dump()
-        except Exception as e:
-            print(e)
+    #         return SudokuInDB.model_validate(new_record).model_dump()
+    #     except Exception as e:
+    #         print(e)
 
     async def get_leaderboard(self, level: str) -> List[dict]:
         result = await self.session.execute(
@@ -54,3 +54,30 @@ class SudokuRepository:
         if results:
             return [SudokuInDB.model_validate(result).model_dump() for result in results]
         return []
+    
+
+    async def insert_data(self, create_model: SudokuCreate) -> SudokuInDB:
+        try:
+            stmt = await self.session.execute(
+                select(Sudoku).where(Sudoku.result_time == None,
+                                       Sudoku.moves_count == None,
+                                       Sudoku.entry_date == create_model.entry_date,
+                                       Sudoku.user_id == create_model.user_id)
+            )
+            result = stmt.scalars().first()
+            if result:
+                result.result_time = create_model.result_time
+                result.moves_count = create_model.moves_count
+                await self.session.commit()
+                await self.session.refresh(result)
+                return SudokuInDB.model_validate(result).model_dump()
+            else:
+                new_record = Sudoku(**create_model)
+                self.session.add(new_record)
+
+                await self.session.commit()
+                await self.session.refresh(new_record)
+
+                return SudokuInDB.model_validate(new_record).model_dump()
+        except Exception as e:
+            print(e)
