@@ -67,7 +67,7 @@ class SudokuRepository:
             result = stmt.scalars().first()
             if result:
                 result.result_time = create_model.result_time
-                result.moves_count = create_model.moves_count
+                result.level = create_model.level
                 await self.session.commit()
                 await self.session.refresh(result)
                 return SudokuInDB.model_validate(result).model_dump()
