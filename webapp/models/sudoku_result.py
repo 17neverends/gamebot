@@ -4,6 +4,6 @@ from typing import Optional
 
 
 class SudokuResult(BaseModel):
-    level: Optional[str]
-    result_time: Optional[float]
+    level: Optional[str] = None
+    result_time: Optional[float] = None
     entry_date: datetime

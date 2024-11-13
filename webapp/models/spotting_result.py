@@ -4,6 +4,6 @@ from typing import Optional
 
 
 class SpottingResult(BaseModel):
-    result_time: Optional[float]
-    moves_count: Optional[int]
+    result_time: Optional[float] = None
+    moves_count: Optional[int] = None
     entry_date: datetime
