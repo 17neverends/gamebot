@@ -59,9 +59,6 @@ async def save_result(data: SudokuResult,
         print("\n\n\n\n", new_result, "\n\n\n\n")
         new_result = await sudoku_repository.insert_data(create_model=new_result.model_dump())
         user = await user_repository.update_field_by_tg_id(tg_id=user.tg_id, field_name="visits_count")
-        user = await user_repository.update_field_by_tg_id(tg_id=user.tg_id,
-                                                           field_name="visits_count",
-                                                           increment_by=data.result_time)
 
 
     print("\n\n\n\n", new_result, "\n\n\n\n")
