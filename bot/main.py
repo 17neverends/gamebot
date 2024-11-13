@@ -68,7 +68,7 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
 
 @dp.message(Command("referal"))
 async def referal_handler(message: types.Message):
-    await message.answer(f'https://t.me/{settings.bot_name}?start={message.from_user.id}')
+    await message.answer(f'https://t.me/{settings.bot_name}?start=user_{message.from_user.id}')
 
 
 async def main():
