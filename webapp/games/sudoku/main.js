@@ -539,8 +539,25 @@ async function save_result() {
 }
 
 
+async function save_init_result() { 
+  const response = await fetch('/sudoku/save_result', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        Authorization: window.Telegram.WebApp.initData
+    },
+    body: JSON.stringify({
+        entry_date: entry_date,
+    })
+    }
+  );
+  const data = await response.json();
+  return data;
+}
+
 
 window.onload = async function () {
+  await save_init_result();
   create();
   let data = await get_data();
   renderLeaderboard(data);  
