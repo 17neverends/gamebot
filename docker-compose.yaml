@@ -65,8 +65,8 @@ services:
       - postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: qfokdsjihf123131SHJJQW
+      POSTGRES_PASSWORD: qfokdsjihf123131SHJJQW
+      POSTGRES_DB: postgres
     networks:
       - netweb
   
