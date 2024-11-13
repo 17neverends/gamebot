@@ -15,17 +15,17 @@ class SpottingRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
 
-    async def insert_data(self, create_model: SpottingCreate) -> SpottingInDB:
-        try:
-            new_record = Spotting(**create_model)
-            self.session.add(new_record)
+    # async def insert_data(self, create_model: SpottingCreate) -> SpottingInDB:
+    #     try:
+    #         new_record = Spotting(**create_model)
+    #         self.session.add(new_record)
 
-            await self.session.commit()
-            await self.session.refresh(new_record)
+    #         await self.session.commit()
+    #         await self.session.refresh(new_record)
 
-            return SpottingInDB.model_validate(new_record).model_dump()
-        except Exception as e:
-            pass
+    #         return SpottingInDB.model_validate(new_record).model_dump()
+    #     except Exception as e:
+    #         pass
 
     async def get_leaderboard(self) -> List[dict]:
         result = await self.session.execute(
@@ -57,3 +57,29 @@ class SpottingRepository:
             return [SpottingInDB.model_validate(result).model_dump() for result in results]
 
         return []
+    
+    async def insert_data(self, create_model: SpottingCreate) -> SpottingInDB:
+        try:
+            stmt = await self.session.execute(
+                select(Spotting).where(Spotting.result_time == None,
+                                       Spotting.moves_count == None,
+                                       Spotting.entry_date == create_model.entry_date,
+                                       Spotting.user_id == create_model.user_id)
+            )
+            result = stmt.scalars().first()
+            if result:
+                result.result_time = create_model.result_time
+                result.moves_count = create_model.moves_count
+                await self.session.commit()
+                await self.session.refresh(result)
+                return SpottingInDB.model_validate(result).model_dump()
+            else:
+                new_record = Spotting(**create_model)
+                self.session.add(new_record)
+
+                await self.session.commit()
+                await self.session.refresh(new_record)
+
+                return SpottingInDB.model_validate(new_record).model_dump()
+        except Exception as e:
+            print(e)

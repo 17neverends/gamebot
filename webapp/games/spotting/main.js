@@ -16,6 +16,7 @@ async function get_data() {
   }
 
 
+
 async function save_result() { 
     const result_time = (Date.now() - startTime) / 1000;
     const response = await fetch('/spotting/save_result', {
@@ -35,7 +36,26 @@ async function save_result() {
     return data;
 }
 
+
+async function save_init_result() {
+    const response = await fetch('/spotting/save_result', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          Authorization: window.Telegram.WebApp.initData
+      },
+      body: JSON.stringify({
+          entry_date: entry_date,
+      })
+      }
+    );
+    const data = await response.json();
+    return data;
+}
+
+
 window.onload = async function () {
+    await save_init_result();
     let data = await get_data();
     renderLeaderboard(data);  
 }
