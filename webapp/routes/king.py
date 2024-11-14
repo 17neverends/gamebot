@@ -56,7 +56,7 @@ async def update(data: UpdateTime, authorization: Optional[str] = Header(default
         update_model = KingUpdate(user_id=user.id,
                                   total_time=data.duration,
                                   entry_date=data.entry_date)
-        update_model = await repo.update_time_on_session(update_model=data)
+        update_model = await repo.update_time_on_session(update_model=update_model)
         print("\n\n\n\n", update_model, "\n\n\n\n")
 
     return JSONResponse(content={"detail": "OK"})
