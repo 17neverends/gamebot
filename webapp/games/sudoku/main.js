@@ -220,6 +220,7 @@ function showModal() {
   const resultMessage = document.getElementById('resultMessage');
   resultMessage.innerText = `Вы победили! Время: ${(Date.now() - startTime) / 1000} сек.`;
   modal.style.display = "block";
+  resetTimer();
 }
 
 document.getElementById('closeModal').onclick = function() {
