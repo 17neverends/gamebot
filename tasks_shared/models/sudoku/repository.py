@@ -20,7 +20,7 @@ class SudokuRepository:
             .where(Sudoku.result_time != None, Sudoku.level != None)
             .join(User, User.id == Sudoku.user_id)
             .filter(Sudoku.level == level)
-            .order_by(Sudoku.result_time.desc())
+            .order_by(Sudoku.result_time.asc())
             .limit(3)
         )
         records = result.fetchall()

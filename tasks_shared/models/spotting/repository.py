@@ -20,7 +20,7 @@ class SpottingRepository:
             select(Spotting.result_time, Spotting.moves_count, User.tg_id, User.username)
             .where(Spotting.result_time != None, Spotting.moves_count != None)
             .join(User, User.id == Spotting.user_id)
-            .order_by(Spotting.result_time.desc(), Spotting.moves_count.desc())
+            .order_by(Spotting.result_time.asc(), Spotting.moves_count.asc())
             .limit(3)
         )
         records = result.fetchall()
