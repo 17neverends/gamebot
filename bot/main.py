@@ -37,10 +37,14 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
                 return
 
             if not user_exists and splitted_args[0] == "user":
-                await repository.update_field_by_tg_id(
-                    tg_id=int(splitted_args[1]),
-                    field_name="referal_count"
-                )
+                is_referal_user_exists = await repository.already_exists(tg_id=int(splitted_args[1]))
+                if not is_referal_user_exists:
+                    await message.answer("Пользователя, который Вас пригласал не существует в этом боте")
+                else:
+                    await repository.update_field_by_tg_id(
+                        tg_id=int(splitted_args[1]),
+                        field_name="referal_count"
+                    )
 
     await message.answer(f"Привет, {message.from_user.full_name}!")
     builder = InlineKeyboardBuilder()
