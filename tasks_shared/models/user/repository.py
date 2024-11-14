@@ -2,8 +2,10 @@ from datetime import datetime
 from typing import List, Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from sqlalchemy import update
+from sqlalchemy import func, update
 from tasks_shared.models.user.model import User
+from tasks_shared.models.king.model import King
+from tasks_shared.models.match.model import Match
 from tasks_shared.models.user.schemas import UserCreate, UserUpdate, User as UserSchema
 
 
@@ -88,6 +90,51 @@ class UserRepository:
 
         results = sessions.scalars().all()
         if results:
-            return [UserSchema.model_validate(result).model_dump() for result in results]
+            user_data = []
+            for result in results:
+                total_time = await self.get_total_time_in_bot(tg_id=result.tg_id)
+                exit_counts = await self.get_exit_counts_in_bot(tg_id=result.tg_id)
+                
+                user_dict = UserSchema.model_validate(result).model_dump()
+                user_dict['total_time'] = total_time
+                user_dict['exit_counts'] = exit_counts
+                user_data.append(user_dict)
+            
+            return user_data
 
         return []
+    
+    async def get_total_time_in_bot(self, tg_id: int) -> int:
+        user = await self.get_user_by_tg_id(tg_id=tg_id)
+
+        king_result = await self.session.execute(
+                select(func.sum(King.total_time))
+                .where(King.user_id == user.id)
+            )
+        
+        match_result = await self.session.execute(
+                select(func.sum(Match.total_time))
+                .where(Match.user_id == user.id)
+            )
+
+        total_time = (king_result.scalar() or 0) + (match_result.scalar() or 0)
+
+        return total_time
+    
+
+    async def get_exit_counts_in_bot(self, tg_id: int) -> int:
+        user = await self.get_user_by_tg_id(tg_id=tg_id)
+
+        king_result = await self.session.execute(
+            select(func.count())
+            .where(King.user_id == user.id, King.total_time < 25)
+        )
+        
+        match_result = await self.session.execute(
+            select(func.count())
+            .where(Match.user_id == user.id, Match.total_time < 25)
+        )
+
+        exit_counts = (king_result.scalar() or 0) + (match_result.scalar() or 0)
+
+        return exit_counts

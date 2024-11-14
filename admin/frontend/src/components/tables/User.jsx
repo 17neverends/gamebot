@@ -9,9 +9,9 @@ let columnsConfig = [
   { key: 'username', label: 'Ник', width: 200, type: "varchar"},
   { key: 'comings_from', label: 'Откуда пришел', width: 200, type: "varchar"},
   { key: 'visits_count', label: 'Сколько раз заходил', width: 300, type: "numeric"},
-  { key: 'exit_count', label: 'Кол-во отказов', width: 300, type: "numeric"},
   { key: 'referal_count', label: 'Привел пользователей', width: 300, type: "numeric"},
   { key: 'total_time', label: 'Время в боте', width: 300, type: "numeric"},
+  { key: 'exit_counts', label: 'Кол-во отказов', width: 300, type: "numeric"},
   { key: 'blocked', label: 'Заблокирован?', width: 200, type: "boolean"},
 ];
 

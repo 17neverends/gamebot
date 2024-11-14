@@ -6,6 +6,7 @@ import {created_at, updated_at} from '../../utils/time_mixin';
 let columnsConfig = [
   { key: 'id', label: 'ID', width: 100, align: 'center', fixed: true},
   { key: 'user_id', label: 'User ID', width: 100, type: "numeric"},
+  { key: 'total_time', label: 'Время пребывания (сек)', width: 200, type: "numeric"},
   { key: 'entry_date', label: 'Дата входа', width: 300, type: "varchar"},
   { key: 'device', label: 'Устройство (ОС)', width: 300, type: "varchar"},
   { key: 'language', label: 'Язык (ТГ)', width: 300, type: "varchar"}

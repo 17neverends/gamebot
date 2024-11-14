@@ -12,9 +12,7 @@ class User(Base, TimestampMixin):
     username: Mapped[str]
     comings_from: Mapped[str] = mapped_column(nullable=True)
     visits_count: Mapped[int] = mapped_column(default=0)
-    exit_count: Mapped[int] = mapped_column(default=0)
     referal_count: Mapped[int] = mapped_column(default=0)
-    total_time: Mapped[float] = mapped_column(default=0)
     blocked: Mapped[bool] = mapped_column(default=False)
 
     class Config:
