@@ -132,31 +132,31 @@
             });
         };
         document.body.appendChild(script);
+        
 
-        let entryTime = Date.now();
-        function sendGameDuration() {
-        let duration = Math.floor((Date.now() - entryTime) / 1000);
-        fetch("/king/test", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: window.Telegram.WebApp.initData
-            },
-            body: JSON.stringify({
-                data: duration
-            })
-        }).catch(error => console.log("Ошибка отправки данных:", error));
-        }
+        async function sendGameDuration() {
+            try {
+                const response = await fetch("/king/update_time", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: window.Telegram.WebApp.initData
+                    },
+                    body: JSON.stringify({
+                        duration: 5,
+                        entry_date: entry_date
+                    })
+                });
 
-        document.addEventListener("visibilitychange", () => {
-            if (document.visibilityState === "hidden") {
-                sendGameDuration();
+                if (!response.ok) {
+                    throw new Error("Ошибка отправки данных");
+                }
+            } catch (error) {
+                console.log("Ошибка отправки данных:", error);
             }
-        });
-
-        window.addEventListener("beforeunload", (event) => {
-            sendGameDuration();
-        });
+        }
+        const updateInterval = 5000;
+        setInterval(sendGameDuration, updateInterval);
     </script>
 </body>
 </html>

@@ -4,7 +4,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from tasks_shared.models.king.model import King
 from tasks_shared.models.king.schemas import (
     KingCreate,
-    KingInDB
+    KingInDB,
+    KingUpdate
 )
 from sqlalchemy.future import select
 
@@ -42,3 +43,13 @@ class KingRepository:
             return [KingInDB.model_validate(result).model_dump() for result in results]
 
         return []
+    
+    async def update_time_on_session(self, update_model: KingUpdate) -> KingInDB:
+        try:
+            king = await self.session.get(King, update_model.user_id)
+            king.total_time = king.total_time + update_model.total_time
+            await self.session.commit()
+            await self.session.refresh(king)
+            return KingInDB.model_validate(king).model_dump()
+        except Exception as e:
+            pass
