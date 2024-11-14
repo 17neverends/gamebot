@@ -228,10 +228,10 @@ document.getElementById('closeModal').onclick = function() {
 
 document.getElementById('restart-button').onclick = function() {
   time_count = new Date();
+  resetBoard();
+  create();
   resetTimer();
   startTimer();
-  resetBoard();
-
 };
 
 function clearCell() {
