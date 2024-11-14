@@ -15,21 +15,10 @@ class SpottingRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
 
-    # async def insert_data(self, create_model: SpottingCreate) -> SpottingInDB:
-    #     try:
-    #         new_record = Spotting(**create_model)
-    #         self.session.add(new_record)
-
-    #         await self.session.commit()
-    #         await self.session.refresh(new_record)
-
-    #         return SpottingInDB.model_validate(new_record).model_dump()
-    #     except Exception as e:
-    #         pass
-
     async def get_leaderboard(self) -> List[dict]:
         result = await self.session.execute(
             select(Spotting.result_time, Spotting.moves_count, User.tg_id, User.username)
+            .where(Spotting.result_time != None, Spotting.moves_count != None)
             .join(User, User.id == Spotting.user_id)
             .order_by(Spotting.result_time.desc(), Spotting.moves_count.desc())
             .limit(3)

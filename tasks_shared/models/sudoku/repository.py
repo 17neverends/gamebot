@@ -14,21 +14,10 @@ class SudokuRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
 
-    # async def insert_data(self, create_model: SudokuCreate) -> SudokuInDB:
-    #     try:
-    #         new_record = Sudoku(**create_model)
-    #         self.session.add(new_record)
-
-    #         await self.session.commit()
-    #         await self.session.refresh(new_record)
-
-    #         return SudokuInDB.model_validate(new_record).model_dump()
-    #     except Exception as e:
-    #         print(e)
-
     async def get_leaderboard(self, level: str) -> List[dict]:
         result = await self.session.execute(
             select(Sudoku.result_time, User.tg_id, User.username)
+            .where(Sudoku.result_time != None, Sudoku.level != None)
             .join(User, User.id == Sudoku.user_id)
             .filter(Sudoku.level == level)
             .order_by(Sudoku.result_time.desc())
