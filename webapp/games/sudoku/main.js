@@ -218,7 +218,7 @@ let time_count = new Date();
 function showModal() {
   const modal = document.getElementById('modal');
   const resultMessage = document.getElementById('resultMessage');
-  resultMessage.innerText = `Вы победили! Время: ${(new Date() - time_count) / 1000} сек.`;
+  resultMessage.innerText = `Вы победили! Время: ${(Date.now() - startTime) / 1000} сек.`;
   modal.style.display = "block";
 }
 
