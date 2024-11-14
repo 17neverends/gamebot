@@ -63,13 +63,13 @@ class SpottingRepository:
             stmt = await self.session.execute(
                 select(Spotting).where(Spotting.result_time == None,
                                        Spotting.moves_count == None,
-                                       Spotting.entry_date == create_model.entry_date,
-                                       Spotting.user_id == create_model.user_id)
+                                       Spotting.entry_date == create_model.get("entry_date"),
+                                       Spotting.user_id == create_model.get("user_id"))
             )
             result = stmt.scalars().first()
             if result:
-                result.result_time = create_model.result_time
-                result.moves_count = create_model.moves_count
+                result.result_time = create_model.get("result_time")
+                result.moves_count = create_model.get("moves_count")
                 await self.session.commit()
                 await self.session.refresh(result)
                 return SpottingInDB.model_validate(result).model_dump()
