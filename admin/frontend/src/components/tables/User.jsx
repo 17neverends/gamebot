@@ -20,6 +20,7 @@ columnsConfig.push(updated_at);
 
 const User = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const tablename = 'user';
 
   useEffect(() => {
@@ -29,6 +30,8 @@ const User = () => {
         setData(jsonData);
       } catch (error) {
         console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -43,6 +46,7 @@ const User = () => {
       columnsConfig={columnsConfig}
       data={data}
       setData={setData}
+      isLoading={loading}
       filtered={true}
     />
   );

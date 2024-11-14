@@ -18,6 +18,7 @@ columnsConfig.push(updated_at);
 
 const Sudoku = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const tablename = 'sudoku';
 
   useEffect(() => {
@@ -27,6 +28,8 @@ const Sudoku = () => {
         setData(jsonData);
       } catch (error) {
         console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -41,6 +44,7 @@ const Sudoku = () => {
       columnsConfig={columnsConfig}
       data={data}
       setData={setData}
+      isLoading={loading}
       filtered={true}
     />
   );

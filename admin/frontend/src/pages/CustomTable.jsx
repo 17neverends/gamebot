@@ -5,9 +5,8 @@ import { get_table_info, get_filtered_table_info } from '../api/get_info';
 import { formatDate } from '../utils/format';
 const { Column, HeaderCell, Cell } = Table;
 
-export const CustomTable = ({ tableName, columnsConfig, data, setData, filtered = false }) => {
+export const CustomTable = ({ tableName, columnsConfig, data, setData, isLoading, filtered = false }) => {
   const [columnKeys, setColumnKeys] = useState(columnsConfig.map(column => column.key));
-  const [loading, setLoading] = useState(false);
   const [detailModalOpen, setDetailModalOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   const [filteredData, setFilteredData] = useState(data);
@@ -111,15 +110,6 @@ export const CustomTable = ({ tableName, columnsConfig, data, setData, filtered 
           onChange={setColumnKeys}
           cleanable={false}
         />
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <Button
-            appearance="primary"
-            onClick={() => setAddModalOpen(true)}
-            style={{width: "9rem", marginBottom: "1rem"}}
-          >
-            Новая запись
-          </Button>
-        </div>
       </div>
 
       <div style={{ display: "flex", gap: "1rem", alignItems: "center", marginTop: "1rem" }}>
@@ -167,7 +157,7 @@ export const CustomTable = ({ tableName, columnsConfig, data, setData, filtered 
 
       <div>
         <Table
-          loading={loading}
+          loading={isLoading}
           hover
           showHeader
           autoHeight

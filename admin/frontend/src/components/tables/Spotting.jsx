@@ -18,6 +18,7 @@ columnsConfig.push(updated_at);
 
 const Spotting = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const tablename = 'spotting';
 
   useEffect(() => {
@@ -27,6 +28,8 @@ const Spotting = () => {
         setData(jsonData);
       } catch (error) {
         console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -41,6 +44,7 @@ const Spotting = () => {
       columnsConfig={columnsConfig}
       data={data}
       setData={setData}
+      isLoading={loading}
       filtered={true}
     />
   );

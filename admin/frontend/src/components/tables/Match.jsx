@@ -17,6 +17,7 @@ columnsConfig.push(updated_at);
 
 const Match = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const tablename = 'match';
 
   useEffect(() => {
@@ -26,6 +27,8 @@ const Match = () => {
         setData(jsonData);
       } catch (error) {
         console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -40,6 +43,7 @@ const Match = () => {
       columnsConfig={columnsConfig}
       data={data}
       setData={setData}
+      isLoading={loading}
       filtered={true}
     />
   );
