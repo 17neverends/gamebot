@@ -365,8 +365,7 @@ function input_value(event) {
         update(current, value);
         if (check_win()) {
           showModal();
-
-    
+          resetTimer();
           save_result()
             .then(result => {
               console.log("Результат сохранён:", result);
