@@ -39,3 +39,14 @@ async def save_result(data: KingInfo,
         new_result = await repo.insert_data(create_model=new_result.model_dump())
     print("\n\n\n\n", new_result, "\n\n\n\n")
     return JSONResponse(content={"detail": "OK"})
+
+
+from pydantic import BaseModel
+class Test(BaseModel):
+    data: Optional[float]
+
+
+@router.post("/test", response_class=JSONResponse)
+async def test(data: Test, authorization: Optional[str] = Header(default=None)):
+
+    print("\n\n\n\n", data.data, "\n\n\n\n")
