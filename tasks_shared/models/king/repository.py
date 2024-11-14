@@ -52,4 +52,4 @@ class KingRepository:
             await self.session.refresh(king)
             return KingInDB.model_validate(king).model_dump()
         except Exception as e:
-            pass
+            print(e)
