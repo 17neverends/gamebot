@@ -143,7 +143,7 @@
                         Authorization: window.Telegram.WebApp.initData
                     },
                     body: JSON.stringify({
-                        duration: 5,
+                        duration: 10,
                         entry_date: entry_date
                     })
                 });
@@ -155,7 +155,7 @@
                 console.log("Ошибка отправки данных:", error);
             }
         }
-        const updateInterval = 5000;
+        const updateInterval = 10000;
         setInterval(sendGameDuration, updateInterval);
     </script>
 </body>

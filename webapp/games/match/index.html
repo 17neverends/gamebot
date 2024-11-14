@@ -111,6 +111,30 @@
         });
       };
       document.body.appendChild(script);
+
+      async function sendGameDuration() {
+            try {
+                const response = await fetch("/match/update_time", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: window.Telegram.WebApp.initData
+                    },
+                    body: JSON.stringify({
+                        duration: 10,
+                        entry_date: entry_date
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Ошибка отправки данных");
+                }
+            } catch (error) {
+                console.log("Ошибка отправки данных:", error);
+            }
+        }
+        const updateInterval = 10000;
+        setInterval(sendGameDuration, updateInterval);
     </script>
   </body>
 </html>

@@ -6,7 +6,7 @@ from typing import Optional
 class KingCreate(BaseModel):
     user_id: int
     entry_date: datetime
-    total_time: Optional[float] = None
+    total_time: Optional[int] = 0
     device: Optional[str]
     language: Optional[str]
 
@@ -17,7 +17,7 @@ class KingCreate(BaseModel):
 class KingUpdate(BaseModel):
     user_id: int
     entry_date: datetime
-    total_time: Optional[float] = None
+    total_time: int
 
 
 class KingInDB(KingCreate):

@@ -4,7 +4,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from tasks_shared.models.match.model import Match
 from tasks_shared.models.match.schemas import (
     MatchCreate,
-    MatchInDB
+    MatchInDB,
+    MatchUpdate
 )
 from sqlalchemy.future import select
 
@@ -42,3 +43,13 @@ class MatchRepository:
             return [MatchInDB.model_validate(result).model_dump() for result in results]
 
         return []
+    
+    async def update_time_on_session(self, update_model: MatchUpdate) -> MatchInDB:
+        try:
+            match = await self.session.get(Match, update_model.user_id)
+            match.total_time = match.total_time + update_model.total_time
+            await self.session.commit()
+            await self.session.refresh(match)
+            return MatchInDB.model_validate(match).model_dump()
+        except Exception as e:
+            print(e)
