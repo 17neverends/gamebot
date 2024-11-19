@@ -48,34 +48,34 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
 
     await message.answer(f"Привет, {message.from_user.full_name}!")
     builder = InlineKeyboardBuilder()
-    builder.button(types.InlineKeyboardButton(
+    builder.add(types.InlineKeyboardButton(
                             text='15',
                             web_app=WebAppInfo(url=f"{settings.domain}/spotting",
                             isExpanded=True)
     ))
-    builder.button(types.InlineKeyboardButton(
+    builder.add(types.InlineKeyboardButton(
                             text='Судоку',
                             web_app=WebAppInfo(url=f"{settings.domain}/sudoku",
                             isExpanded=True)
     ))
-    builder.button(types.InlineKeyboardButton(
+    builder.add(types.InlineKeyboardButton(
                             text='3 в ряд', web_app=WebAppInfo(url=f"{settings.domain}/match", isExpanded=True)
                         ))
-    builder.button(types.InlineKeyboardButton(
+    builder.add(types.InlineKeyboardButton(
                             text='Кинг Конг', web_app=WebAppInfo(url=f"{settings.domain}/king", isExpanded=True)
                         ))
-    builder.button(types.InlineKeyboardButton(
+    builder.add(types.InlineKeyboardButton(
                             text='Вордли',
                             web_app=WebAppInfo(url=f"{settings.domain}/wordle",
                             isExpanded=True)
     ))
-    builder.button(types.InlineKeyboardButton(
+    builder.add(types.InlineKeyboardButton(
                             text='Сапёр', web_app=WebAppInfo(url=f"{settings.domain}/minisweeper", isExpanded=True)
                         ))
-    builder.button(types.InlineKeyboardButton(
+    builder.add(types.InlineKeyboardButton(
                             text='Крестики-нолики', web_app=WebAppInfo(url=f"{settings.domain}/tiktaktoe", isExpanded=True)
                         ))
-    builder.button(types.InlineKeyboardButton(
+    builder.add(types.InlineKeyboardButton(
                             text='Тетрис', web_app=WebAppInfo(url=f"{settings.domain}/tetris", isExpanded=True)
                         ))
     builder.adjust(3, 3, 2)
