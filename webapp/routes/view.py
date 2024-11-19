@@ -65,3 +65,11 @@ def tiktaktoe():
             "webapp/games/tiktaktoe/index.html", "r", encoding="utf-8"
         ).read()
     )
+
+@router.get("/tetris", response_class=HTMLResponse)
+def tiktaktoe():
+    return HTMLResponse(
+        content=open(
+            "webapp/games/tetris/index.html", "r", encoding="utf-8"
+        ).read()
+    )

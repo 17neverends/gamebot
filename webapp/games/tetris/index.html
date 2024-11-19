@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+  <head>
+    <title>Tetris</title>
+    <link rel="stylesheet" type="text/css" href="/games/tetris/style.css">
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=0.5, maximum-scale=1, user-scalable=0" />
+  </head>
+  <body>
+    <div class="restart-button">
+      <button id="restart-button" onclick="initGame()"></button>
+    </div>
+
+    <div class="difficulty">
+      <h3 id="difficulty-level" onclick="toggleDifficulty()">Сложность: <span id="current-difficulty">Легкая</span></h3>
+    </div>
+    <div id="score">
+      <p>Счет: <span id="lines"></span></p>
+      <button id="pause-button" onclick="toggleGame()"></button>
+    </div>
+    
+    <div id="gameBoard">
+      <canvas id="gameCanvas" width="320" height="640"></canvas>
+    </div>
+
+
+    <div class="action-buttons">
+      <button class="emoji-button" onclick="moveLeft()">👈</button>
+      <button class="emoji-button" onclick="rotatePiece()">🔁</button>
+      <button class="emoji-button" onclick="moveRight()">👉</button>
+    </div>
+
+    <script type="text/javascript" src="/games/tetris/pieces.js"></script>
+    <script type="text/javascript" src="/games/tetris/bulkImageLoader.js"></script>
+    <script type="text/javascript" src="/games/tetris/main.js"></script>
+  </body>
+</html>
