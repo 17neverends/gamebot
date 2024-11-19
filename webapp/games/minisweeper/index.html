@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/games/minisweeper/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <title>Сапёр</title>
+</head>
+<body>
+    <div class="restart-button">
+        <button id="restart-button"></button>
+    </div>
+    <div class="timer">
+        <span id="timer">00:00</span>
+    </div>
+    <div class="core">
+        <div class="difficulty">
+            <h3 id="difficulty-level">Сложность: <span id="current-difficulty">Легкая</span></h3>
+        </div>
+        <p id="flag-count">Флажков: 0</p>
+        <div class="container"></div>
+        <div class="action-buttons">
+            <button id="open-btn" class="emoji-button">🔓</button>
+            <button id="flag-btn" class="emoji-button">🚩</button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Игра завершена!</h2>
+            <p id="resultMessage"></p>
+            <button id="newGameButton">Новая игра</button>
+        </div>
+    </div>
+    <script src="/games/minisweeper/main.js"></script>
+</body>
+</html>

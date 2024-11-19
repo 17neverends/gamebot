@@ -64,6 +64,17 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
     builder.add(types.InlineKeyboardButton(
                             text='Кинг Конг', web_app=WebAppInfo(url=f"{settings.domain}/king", isExpanded=True)
                         ))
+    builder.add(types.InlineKeyboardButton(
+                            text='Вордли',
+                            web_app=WebAppInfo(url=f"{settings.domain}/wordle",
+                            isExpanded=True)
+    ))
+    builder.add(types.InlineKeyboardButton(
+                            text='Сапёр', web_app=WebAppInfo(url=f"{settings.domain}/minisweeper", isExpanded=True)
+                        ))
+    builder.add(types.InlineKeyboardButton(
+                            text='Крестики-нолики', web_app=WebAppInfo(url=f"{settings.domain}/tiktaktoe", isExpanded=True)
+                        ))
     await message.answer(
         "Открыть игру",
         reply_markup=builder.as_markup()
