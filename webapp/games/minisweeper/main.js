@@ -1,4 +1,7 @@
 let selectedAction = null;
+let name;
+let tg_id;
+let entry_date = new Date().toISOString(); 
 
 document.getElementById('open-btn').addEventListener('click', () => {
   selectedAction = 'open';
