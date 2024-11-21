@@ -17,7 +17,7 @@ class TiktaktoeRepository:
     async def get_leaderboard(self) -> List[dict]:
         result = await self.session.execute(
             select(Tiktaktoe.result_time, User.tg_id, User.username)
-            .where(Tiktaktoe.result_time != None, Tiktaktoe.status != None)
+            .where(Tiktaktoe.result_time != None, Tiktaktoe.status == "win")
             .join(User, User.id == Tiktaktoe.user_id)
             .order_by(Tiktaktoe.result_time.asc())
             .limit(3)
@@ -48,14 +48,14 @@ class TiktaktoeRepository:
         try:
             stmt = await self.session.execute(
                 select(Tiktaktoe).where(Tiktaktoe.result_time == None,
-                                          Tiktaktoe.status == None,
-                                          Tiktaktoe.entry_date == create_model.get("entry_date"),
-                                          Tiktaktoe.user_id == create_model.get("user_id"))
+                                        Tiktaktoe.status == None,
+                                        Tiktaktoe.entry_date == create_model.get("entry_date"),
+                                        Tiktaktoe.user_id == create_model.get("user_id"))
             )
             result = stmt.scalars().first()
             if result:
                 result.result_time = create_model.get("result_time")
-                result.level = create_model.get("status")
+                result.status = create_model.get("status")
                 await self.session.commit()
                 await self.session.refresh(result)
                 return TiktaktoeInDB.model_validate(result).model_dump()

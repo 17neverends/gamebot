@@ -3,7 +3,6 @@ const modal = document.getElementById('modal');
 const modalMessage = document.getElementById('resultMessage');
 const closeModalButton = document.getElementById('closeModal');
 const newGameButton = document.getElementById('newGameButton');
-const popup = document.getElementById('popup');
 const startGameButton = document.getElementById('start-game-button');
 
 let timerInterval;
@@ -17,19 +16,15 @@ let board = Array(9).fill(null);
 let currentPlayer = 'X';
 let playerName = 'Игрок';
 
-function showPopup() {
-    popup.style.display = 'flex';
-}
 
-function hidePopup() {
-    popup.style.display = 'none';
-}
+
+
 
 function startGame() {
     board = Array(9).fill(null);
     currentPlayer = 'X';
-    hidePopup();
     modal.style.display = 'none';
+    startTimer();
     renderBoard();
 }
 
@@ -188,7 +183,6 @@ window.onload = async function () {
     await save_init_result();
     let data = await get_data();
     renderLeaderboard(data);  
-    showPopup();
 }
 
 
