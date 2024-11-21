@@ -326,6 +326,8 @@ async function get_data() {
 
 
 async function save_result(status) {
+  console.log("запрос отправлен");
+  
   status = status ? "win" : "lose";
   const result_time = (Date.now() - startTime) / 1000;
   const response = await fetch('/minisweeper/save_result', {
