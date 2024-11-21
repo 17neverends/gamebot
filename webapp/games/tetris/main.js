@@ -152,6 +152,9 @@ function getInput(event){
       break;
     }
   } else {
+    showModal();
+    save_result();
+    resetTimer();
     initGame();
   }
 }
@@ -170,6 +173,7 @@ function pauseGame(){
 }
 
 function initGame(){
+  startTimer();
   var r, c;
   currentLines = 0;
   isGameOver = false;
@@ -568,3 +572,12 @@ startGameButton.onclick = function() {
     document.getElementById('popup').style.display = "none";
     initGame();
   };
+
+
+function showModal() {
+  const modal = document.getElementById("modal");
+  const resultMessage = document.getElementById("resultMessage");
+  resultMessage.innerText = `Игра окончена! Ваш результат: ${currentLines}`;
+  modal.style.display = "block";
+}
+  
