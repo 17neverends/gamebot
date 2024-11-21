@@ -245,7 +245,6 @@ window.onload = async function () {
   let data = await get_data();
   renderLeaderboard(data);  
   document.getElementById('difficulty-level').innerText = `Сложность: ${currentLevel}`;
-  document.addEventListener('keydown', input_value);
 };
 
 
