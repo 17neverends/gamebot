@@ -49,6 +49,7 @@ async def save_result(data: MinisweeperResult,
         minisweeper_repository = MinisweeperRepository(session=session)
         entry_date = data.entry_date.replace(tzinfo=None)
         new_result = MinisweeperCreate(
+            status=data.status,
             user_id=user.id,
             level=data.level,
             result_time=data.result_time,
