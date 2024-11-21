@@ -108,7 +108,7 @@ closeModalButton.addEventListener('click', () => (modal.style.display = 'none'))
 newGameButton.addEventListener('click', startGame);
 startGameButton.onclick = function() {
     document.getElementById('popup').style.display = "none";
-    startTimer();
+    startGame();
   };
 
 
