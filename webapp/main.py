@@ -8,7 +8,7 @@ from webapp.routes.match import router as match_router
 from webapp.routes.king import router as king_router
 from webapp.routes.minisweeper import router as minisweeper_router
 from webapp.routes.tetris import router as tetris_router
-from webapp.routes.tetris import router as wordle_router
+from webapp.routes.wordle import router as wordle_router
 from webapp.routes.tiktaktoe import router as tiktaktoe_router
 
 app = FastAPI()
