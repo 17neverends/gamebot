@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("restart-button").onclick = resetGame;
 
   async function get_data() {
-    const response = await fetch(`/wordle/leaderboard/${currentLevel}`, {
+    const response = await fetch(`/wordle/leaderboard`, {
       method: 'GET',
       headers: {
           Authorization: window.Telegram.WebApp.initData
