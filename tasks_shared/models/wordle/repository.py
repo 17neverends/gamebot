@@ -17,7 +17,7 @@ class WordleRepository:
     async def get_leaderboard(self) -> List[dict]:
         result = await self.session.execute(
             select(Wordle.result_time, User.tg_id, User.username)
-            .where(Wordle.result_time != None, Wordle.status != None)
+            .where(Wordle.result_time != None, Wordle.status == "win")
             .join(User, User.id == Wordle.user_id)
             .order_by(Wordle.result_time.asc())
             .limit(3)
@@ -48,14 +48,13 @@ class WordleRepository:
         try:
             stmt = await self.session.execute(
                 select(Wordle).where(Wordle.result_time == None,
-                                          Wordle.status == None,
-                                          Wordle.entry_date == create_model.get("entry_date"),
-                                          Wordle.user_id == create_model.get("user_id"))
+                                     Wordle.status == None,
+                                     Wordle.entry_date == create_model.get("entry_date"),
+                                     Wordle.user_id == create_model.get("user_id"))
             )
             result = stmt.scalars().first()
             if result:
                 result.result_time = create_model.get("result_time")
-                result.level = create_model.get("level")
                 result.status = create_model.get("status")
                 await self.session.commit()
                 await self.session.refresh(result)
