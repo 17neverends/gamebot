@@ -49,6 +49,7 @@ class TetrisRepository:
         try:
             stmt = await self.session.execute(
                 select(Tetris).where(Tetris.result_time == None,
+                                     Tetris.level == None,
                                      Tetris.score == None,
                                      Tetris.entry_date == create_model.get("entry_date"),
                                      Tetris.user_id == create_model.get("user_id"))
@@ -57,6 +58,7 @@ class TetrisRepository:
             if result:
                 result.result_time = create_model.get("result_time")
                 result.level = create_model.get("score")
+                result.score = create_model.get("score")
                 await self.session.commit()
                 await self.session.refresh(result)
                 return TetrisInDB.model_validate(result).model_dump()

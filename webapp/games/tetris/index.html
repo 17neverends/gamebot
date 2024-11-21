@@ -1,13 +1,38 @@
 <!DOCTYPE html>
   <head>
     <title>Tetris</title>
-    <link rel="stylesheet" type="text/css" href="/games/tetris/style.css">
-
+    <link rel="stylesheet" type="text/css" href="/games/tetris/style.css?v=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <meta name="viewport" content="user-scalable=no, initial-scale=0.5, maximum-scale=1, user-scalable=0" />
   </head>
   <body>
     <div class="restart-button">
       <button id="restart-button" onclick="initGame()"></button>
+    </div>
+
+    <div class="timer">
+      <span id="timer">00:00</span>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Результат игры</h2>
+            <p id="resultMessage"></p>
+            <button id="newGameButton">Новая игра</button>
+        </div>
+    </div>
+
+    <div id="popup" class="modal" style="display:none;">
+      <div class="modal-content">
+          <h2>Добро пожаловать, <span id="player-name"></span>!</h2>
+          <div class="leaderboard" id="leaderboard">
+          </div>
+          <button id="start-game-button">Начать игру</button>
+      </div>
     </div>
 
     <div class="difficulty">
@@ -29,8 +54,8 @@
       <button class="emoji-button" onclick="moveRight()">👉</button>
     </div>
 
-    <script type="text/javascript" src="/games/tetris/pieces.js"></script>
-    <script type="text/javascript" src="/games/tetris/bulkImageLoader.js"></script>
-    <script type="text/javascript" src="/games/tetris/main.js"></script>
+    <script type="text/javascript" src="/games/tetris/pieces.js?v=1"></script>
+    <script type="text/javascript" src="/games/tetris/bulkImageLoader.js?v=1"></script>
+    <script type="text/javascript" src="/games/tetris/main.js?v=1"></script>
   </body>
 </html>

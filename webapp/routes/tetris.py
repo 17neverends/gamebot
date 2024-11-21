@@ -15,7 +15,7 @@ router = APIRouter(
 )
 
 
-@router.get("/leaderboard{level}", response_class=JSONResponse)
+@router.get("/leaderboard/{level}", response_class=JSONResponse)
 async def get_user(level: str, authorization: Optional[str] = Header(default=None)):
     tg_data = await get_user_id_from_authorization(authorization=authorization)
 
