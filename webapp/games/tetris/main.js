@@ -437,7 +437,7 @@ function toggleGame() {
 
 
 async function get_data() {
-  const response = await fetch(`/tetris/leaderboard`, {
+  const response = await fetch(`/tetris/leaderboard${difficulties[difficultyIndex].name}`, {
     method: 'GET',
     headers: {
         Authorization: window.Telegram.WebApp.initData
@@ -459,7 +459,7 @@ async function save_result() {
         Authorization: window.Telegram.WebApp.initData
     },
     body: JSON.stringify({
-        level: difficulties[difficultyIndex],
+        level: difficulties[difficultyIndex].name,
         score: currentLines,
         result_time: result_time,
         entry_date: entry_date,
