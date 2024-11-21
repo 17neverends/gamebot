@@ -58,6 +58,7 @@ class MinisweeperRepository:
             result = stmt.scalars().first()
             if result:
                 result.result_time = create_model.get("result_time")
+                result.status = create_model.get("status")
                 result.level = create_model.get("level")
                 await self.session.commit()
                 await self.session.refresh(result)
