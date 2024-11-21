@@ -17,7 +17,10 @@ let currentPlayer = 'X';
 let playerName = 'Игрок';
 
 
-
+document.getElementById('restart-button').onclick = function() {
+    resetTimer();
+    startGame();
+  };
 
 
 function startGame() {
