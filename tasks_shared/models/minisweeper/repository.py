@@ -17,7 +17,9 @@ class MinisweeperRepository:
     async def get_leaderboard(self, level: str) -> List[dict]:
         result = await self.session.execute(
             select(Minisweeper.result_time, User.tg_id, User.username)
-            .where(Minisweeper.result_time != None, Minisweeper.status != None, Minisweeper.level == level)
+            .where(Minisweeper.result_time != None,
+                   Minisweeper.status == "win",
+                   Minisweeper.level == level)
             .join(User, User.id == Minisweeper.user_id)
             .order_by(Minisweeper.result_time.asc())
             .limit(3)

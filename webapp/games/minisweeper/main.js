@@ -120,6 +120,7 @@ function handleCellClick(row, col) {
     if (value === "M") {
       revealMines();
       showModal("Вы проиграли!", false);
+      save_result(false);
       resetTimer();
     } else {
       revealCell(row, col);
@@ -195,6 +196,7 @@ function checkVictory() {
 
   if (allCellsProcessed && allMinesFlagged) {
     showModal("Вы победили!", true);
+    save_result(true);
     resetTimer();
   }
 }
@@ -240,7 +242,6 @@ document.getElementById("closeModal").onclick = () => {
 
 window.onload = async function () {
   await save_init_result();
-  resetGame();
   let data = await get_data();
   renderLeaderboard(data);  
   document.getElementById('difficulty-level').innerText = `Сложность: ${currentLevel}`;
@@ -324,7 +325,8 @@ async function get_data() {
 }
 
 
-async function save_result(status) { 
+async function save_result(status) {
+  status = status ? "win" : "lose";
   const result_time = (Date.now() - startTime) / 1000;
   const response = await fetch('/minisweeper/save_result', {
     method: 'POST',
