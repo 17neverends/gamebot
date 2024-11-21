@@ -152,9 +152,6 @@ function getInput(event){
       break;
     }
   } else {
-    showModal();
-    save_result();
-    resetTimer();
     initGame();
   }
 }
@@ -255,6 +252,9 @@ function copyData(piece){
 
   if(piece.gridY < 0){
     isGameOver = true;
+    showModal();
+    save_result();
+    resetTimer();
   }
 }
 
@@ -567,9 +567,13 @@ window.onload = async function () {
 
 
 closeModalButton.addEventListener('click', () => (modal.style.display = 'none'));
-newGameButton.addEventListener('click', initGame);
 startGameButton.onclick = function() {
     document.getElementById('popup').style.display = "none";
+    initGame();
+  };
+
+  newGameButton.onclick = function() {
+    document.getElementById('modal').style.display = "none";
     initGame();
   };
 

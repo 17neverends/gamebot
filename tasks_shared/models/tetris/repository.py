@@ -57,7 +57,7 @@ class TetrisRepository:
             result = stmt.scalars().first()
             if result:
                 result.result_time = create_model.get("result_time")
-                result.level = create_model.get("score")
+                result.level = create_model.get("level")
                 result.score = create_model.get("score")
                 await self.session.commit()
                 await self.session.refresh(result)
