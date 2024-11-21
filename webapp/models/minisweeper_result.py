@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 
-class SudokuResult(BaseModel):
+class MinisweeperResult(BaseModel):
     level: Optional[str] = None
     status: Optional[str] = None
     result_time: Optional[float] = None
