@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
           Authorization: window.Telegram.WebApp.initData
       },
       body: JSON.stringify({
-          level: currentLevel,
+          status: status,
           result_time: result_time,
           entry_date: entry_date,
       })
