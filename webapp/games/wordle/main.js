@@ -200,6 +200,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
   document.getElementById("newGameButton").onclick = resetGame;
   document.getElementById("restart-button").onclick = resetGame;
+  document.getElementById("start-game-button").onclick = resetGame;
+
 
   async function get_data() {
     const response = await fetch(`/wordle/leaderboard`, {
