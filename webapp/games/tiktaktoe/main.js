@@ -130,6 +130,14 @@ async function get_data() {
 
 async function save_result(status) { 
     const result_time = (Date.now() - startTime) / 1000;
+    if (status === 'Ничья!') {
+        status = "draw";
+    } else if (status === `${currentPlayer} победил!`) {
+        status = "win";
+    } else if (status === `${currentPlayer} победил!`) {
+        status = "lose";
+    }
+
     const response = await fetch('/tiktaktoe/save_result', {
       method: 'POST',
       headers: {

@@ -35,6 +35,14 @@ function changeLevel() {
   resetGame();
 }
 
+
+const startGameButton = document.getElementById('start-game-button');
+
+startGameButton.onclick = function() {
+  document.getElementById('popup').style.display = "none";
+  resetGame();
+};
+
 function startTimer() {
   startTime = new Date();
   timerInterval = setInterval(updateTimer, 1000);
@@ -227,10 +235,125 @@ document.getElementById("closeModal").onclick = () => {
   document.getElementById("modal").style.display = "none";
 };
 
-window.onload = resetGame;
+window.onload = async function () {
+  await save_init_result();
+  resetGame();
+  let data = await get_data();
+  renderLeaderboard(data);  
+  document.getElementById('difficulty-level').innerText = `Сложность: ${currentLevel}`;
+  document.addEventListener('keydown', input_value);
+};
 
 
 function updateFlagCount() {
   document.getElementById("flag-count").innerText = `Флажков: ${flaggedCount}`;
 }
 
+
+
+function startTimer() {
+  startTime = new Date();
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+  const currentTime = new Date();
+  const timeDiff = (currentTime - startTime) / 1000;
+  const minutes = Math.floor(timeDiff / 60);
+  const seconds = Math.floor(timeDiff % 60);
+  document.getElementById('timer').innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  document.getElementById('timer').innerText = '00:00';
+}
+
+
+
+function renderLeaderboard(data) {
+  document.getElementById('player-name').textContent = data.name;
+
+  const leaderboardElement = document.getElementById('leaderboard');
+  leaderboardElement.innerHTML = '';
+
+  data.leaderboard.sort((a, b) => a.result_time - b.result_time);
+
+  data.leaderboard.forEach((leader, index) => {
+      const leaderRow = document.createElement('div');
+      leaderRow.classList.add('leader-row');
+
+      let icon;
+      const position = index + 1;
+
+      if (position === 1) {
+          icon = '<img src="static/first.png" class="leader-icon">';
+      } else if (position === 2) {
+          icon = '<img src="static/second.png" class="leader-icon">';
+      } else if (position === 3) {
+          icon = '<img src="static/third.png" class="leader-icon">';
+      } else {
+          icon = `<span class="leader-number">${position}</span>`;
+      }
+
+      leaderRow.innerHTML = `
+      ${icon}
+      <span class="leader-name">
+          ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.result_time} сек.${leader.tg_id === data.tg_id ? '</strong>' : ''}
+      </span>
+      `;
+
+      leaderboardElement.appendChild(leaderRow);
+  });
+
+  document.getElementById('popup').style.display = 'block';
+}
+
+async function get_data() {
+  const response = await fetch(`/minisweeper/leaderboard/${currentLevel}`, {
+    method: 'GET',
+    headers: {
+        Authorization: window.Telegram.WebApp.initData
+    },
+  });
+  const data = await response.json();
+  return data;
+}
+
+
+async function save_result(status) { 
+  const result_time = (Date.now() - startTime) / 1000;
+  const response = await fetch('/minisweeper/save_result', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        Authorization: window.Telegram.WebApp.initData
+    },
+    body: JSON.stringify({
+        level: currentLevel,
+        status: status,
+        result_time: result_time,
+        entry_date: entry_date,
+    })
+    }
+  );
+  const data = await response.json();
+  return data;
+}
+
+
+async function save_init_result() { 
+  const response = await fetch('/minisweeper/save_result', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        Authorization: window.Telegram.WebApp.initData
+    },
+    body: JSON.stringify({
+        entry_date: entry_date,
+    })
+    }
+  );
+  const data = await response.json();
+  return data;
+}

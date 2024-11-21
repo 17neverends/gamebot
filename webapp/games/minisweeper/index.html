@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/games/minisweeper/style.css">
+    <link rel="stylesheet" href="/games/minisweeper/style.css?v=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
@@ -27,6 +27,14 @@
             <button id="flag-btn" class="emoji-button">🚩</button>
         </div>
     </div>
+    <div id="popup" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h2>Добро пожаловать, <span id="player-name"></span>!</h2>
+            <div class="leaderboard" id="leaderboard">
+            </div>
+            <button id="start-game-button">Начать игру</button>
+        </div>
+    </div>
 
     <div id="modal" class="modal">
         <div class="modal-content">
@@ -36,6 +44,6 @@
             <button id="newGameButton">Новая игра</button>
         </div>
     </div>
-    <script src="/games/minisweeper/main.js"></script>
+    <script src="/games/minisweeper/main.js?v=1"></script>
 </body>
 </html>
