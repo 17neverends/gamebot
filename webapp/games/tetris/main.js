@@ -524,7 +524,7 @@ function renderLeaderboard(data) {
   const leaderboardElement = document.getElementById('leaderboard');
   leaderboardElement.innerHTML = '';
 
-  data.leaderboard.sort((a, b) => a.result_time - b.result_time);
+  data.leaderboard.sort((a, b) => a.score - b.score);
 
   data.leaderboard.forEach((leader, index) => {
       const leaderRow = document.createElement('div');
@@ -546,7 +546,7 @@ function renderLeaderboard(data) {
       leaderRow.innerHTML = `
       ${icon}
       <span class="leader-name">
-          ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.result_time} сек.${leader.tg_id === data.tg_id ? '</strong>' : ''}
+          ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.score} сек.${leader.tg_id === data.tg_id ? '</strong>' : ''}
       </span>
       `;
 

@@ -16,7 +16,7 @@ class TetrisRepository:
 
     async def get_leaderboard(self, level: str) -> List[dict]:
         result = await self.session.execute(
-            select(Tetris.result_time, User.tg_id, User.username)
+            select(Tetris.score, User.tg_id, User.username)
             .where(Tetris.result_time != None, Tetris.score != None)
             .join(User, User.id == Tetris.user_id)
             .filter(Tetris.level == level)
