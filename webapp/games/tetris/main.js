@@ -1,5 +1,5 @@
-var ROWS = 40;
-var COLS = 20;
+var ROWS = 20;
+var COLS = 10;
 var SIZE = 16;
 const closeModalButton = document.getElementById('closeModal');
 const newGameButton = document.getElementById('newGameButton');
