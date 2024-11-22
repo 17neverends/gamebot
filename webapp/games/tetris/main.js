@@ -1,6 +1,6 @@
 var ROWS = 20;
 var COLS = 10;
-var SIZE = 32;
+var SIZE = 16;
 const closeModalButton = document.getElementById('closeModal');
 const newGameButton = document.getElementById('newGameButton');
 const startGameButton = document.getElementById('start-game-button');
