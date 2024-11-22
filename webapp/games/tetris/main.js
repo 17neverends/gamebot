@@ -218,14 +218,14 @@ function update(){
       previousTime = currentTime;
     }
 
-    ctx.clearRect(0, 0, 320, 640);
+    ctx.clearRect(0, 0, 160, 320);
     drawBoard();
     drawPiece(currentPiece);
 
     if(isGameOver === false){
       requestAnimationFrame(update);
     } else {
-      ctx.drawImage(gameOverImage, 0, 0, 320, 640, 0, 0, 320, 640);
+      ctx.drawImage(gameOverImage, 0, 0, 160, 320, 0, 0, 160, 320);
     }
   }
 }
@@ -322,7 +322,7 @@ function zeroRow(row){
 }
 
 function drawBoard(){
-  ctx.drawImage(backgroundImage, 0, 0, 320, 640, 0, 0, 320, 640);
+  ctx.drawImage(backgroundImage, 0, 0, 160, 320, 0, 0, 160, 320);
 
   for(var r = 0; r < ROWS; r++){
     for(var c = 0; c < COLS; c++){
