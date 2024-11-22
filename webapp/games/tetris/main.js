@@ -101,7 +101,7 @@ function onReady(){
   imageLoader = new bulkImageLoader();
   imageLoader.addImage("/static/blocks.png", "blocks");
   // imageLoader.addImage("/static/bg.png", "background");
-  imageLoader.addImage("/static/over.png", "gameover");
+  // imageLoader.addImage("/static/over.png", "gameover");
   imageLoader.onReadyCallback = onImagesLoaded;
   imageLoader.loadImages();
 
