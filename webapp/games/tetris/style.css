@@ -82,7 +82,7 @@ body
     height: 640px;
     margin: 0 auto;
     border: 2px solid #6e6e7b;
-    transform: scale(0.8);
+    transform: scale(0.6);
     transform-origin: center;
   }
   
@@ -414,4 +414,22 @@ body
         font-size: 1.5rem;
         line-height: 80px;
     }
+}
+
+
+@media (max-width: 800px) {
+
+  .restart-button button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+
+
+  .restart-button button {
+    width: 30px;
+    height: 30px;
+  }
 }

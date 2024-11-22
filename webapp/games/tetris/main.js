@@ -546,7 +546,7 @@ function renderLeaderboard(data) {
       leaderRow.innerHTML = `
       ${icon}
       <span class="leader-name">
-          ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.score} сек.${leader.tg_id === data.tg_id ? '</strong>' : ''}
+          ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.score} очков.${leader.tg_id === data.tg_id ? '</strong>' : ''}
       </span>
       `;
 
