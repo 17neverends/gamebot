@@ -19,6 +19,35 @@ body
 	font-style: normal;
 }
 
+.leaderboard {
+  margin-top: 20px;
+}
+
+.leader-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.leader-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.leader-number {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.leader-name {
+  flex-grow: 1;
+}
+
 .action-buttons {
 	display: flex;
 	justify-content: center;
@@ -47,15 +76,16 @@ body
   }
   
 
-#gameBoard
-{
-	background-color:#8a8a8a;
-	width:320px;
-	height:640px;
-	margin:0 auto;
-	border: 2px solid #6e6e7b;
-}
-
+  #gameBoard {
+    background-color: #8a8a8a;
+    width: 320px;
+    height: 640px;
+    margin: 0 auto;
+    border: 2px solid #6e6e7b;
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+  
 #score
 {
 	display: flex;

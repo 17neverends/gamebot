@@ -82,12 +82,13 @@ header {
 
 #keyboard-container {
   height: 200px;
+  margin-bottom: 10px;
 }
 
 .keyboard-row {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   margin: 0 auto 8px;
   touch-action: manipulation;
 }
@@ -244,6 +245,35 @@ header {
   transform: scale(1.1);
 }
 
+.leaderboard {
+  margin-top: 20px;
+}
+
+.leader-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.leader-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.leader-number {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.leader-name {
+  flex-grow: 1;
+}
+
 .close {
   color: #aaa;
   float: right;
@@ -287,5 +317,29 @@ header {
 @media (max-width: 600px) {
   .title {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  #board {
+    grid-gap: 3px;
+  }
+
+  .square {
+    min-width: 50px;
+    min-height: 50px;
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  #board {
+    grid-gap: 2px;
+  }
+
+  .square {
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 30px;
   }
 }
