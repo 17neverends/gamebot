@@ -20,7 +20,7 @@ class TetrisRepository:
             .where(Tetris.result_time != None, Tetris.score != None)
             .join(User, User.id == Tetris.user_id)
             .filter(Tetris.level == level)
-            .order_by(Tetris.score.asc())
+            .order_by(Tetris.score.desc())
             .limit(3)
         )
         records = result.fetchall()

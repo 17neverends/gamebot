@@ -58,6 +58,7 @@ body
 	width: 60px;
 	height: 60px;
 	font-size: 32px;
+  text-align: center;
 	color: #fff;
 	background-color: rgba(255, 255, 255, 0.2);
 	border: 2px solid white;
@@ -402,19 +403,7 @@ body
   .restart-button button:hover {
     transform: scale(1.1);
   }
-@media (max-width: 500px) {
-    .board {
-        grid-template-columns: repeat(3, 80px);
-        grid-template-rows: repeat(3, 80px);
-    }
 
-    .cell {
-        width: 80px;
-        height: 80px;
-        font-size: 1.5rem;
-        line-height: 80px;
-    }
-}
 
 
 @media (max-width: 800px) {
@@ -426,12 +415,24 @@ body
 }
 
 @media (max-width: 500px) {
+    .board {
+      grid-template-columns: repeat(3, 80px);
+      grid-template-rows: repeat(3, 80px);
+  }
+
+  .cell {
+      width: 80px;
+      height: 80px;
+      font-size: 1.5rem;
+      line-height: 80px;
+  }
 
   .emoji-button {
     width: 30px;
     height: 30px;
     font-size: 15px;
     line-height: 30px;
+    text-align: center;
     color: #fff;
     background-color: rgba(255, 255, 255, 0.2);
     border: 2px solid white;
