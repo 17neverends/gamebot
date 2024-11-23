@@ -66,25 +66,57 @@ function handleMove(index) {
 }
 
 function botMove() {
-    const availableMoves = board
-        .map((cell, index) => (cell ? null : index))
-        .filter(index => index !== null);
+    const winningMove = findBestMove('O');
+    if (winningMove !== null) {
+        board[winningMove] = 'O';
+        renderBoard();
+        if (checkWin('O')) {
+            endGame('O победил!');
+            return;
+        }
+        if (board.every(cell => cell)) {
+            endGame('Ничья!');
+            return;
+        }
+        currentPlayer = 'X';
+        return;
+    }
 
+    const blockingMove = findBestMove('X');
+    if (blockingMove !== null) {
+        board[blockingMove] = 'O';
+        renderBoard();
+        if (board.every(cell => cell)) {
+            endGame('Ничья!');
+            return;
+        }
+        currentPlayer = 'X';
+        return;
+    }
+
+    if (board[4] === null) {
+        board[4] = 'O';
+        renderBoard();
+        currentPlayer = 'X';
+        return;
+    }
+
+    const corners = [0, 2, 6, 8];
+    const availableCorners = corners.filter(index => board[index] === null);
+    if (availableCorners.length > 0) {
+        const randomCorner = availableCorners[Math.floor(Math.random() * availableCorners.length)];
+        board[randomCorner] = 'O';
+        renderBoard();
+        currentPlayer = 'X';
+        return;
+    }
+
+    const availableMoves = board
+        .map((cell, index) => (cell === null ? index : null))
+        .filter(index => index !== null);
     const randomMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
     board[randomMove] = 'O';
-
     renderBoard();
-
-    if (checkWin('O')) {
-        endGame('O победил!');
-        return;
-    }
-
-    if (board.every(cell => cell)) {
-        endGame('Ничья!');
-        return;
-    }
-
     currentPlayer = 'X';
 }
 
@@ -196,6 +228,25 @@ window.onload = async function () {
     await save_init_result();
     let data = await get_data();
     renderLeaderboard(data);  
+}
+
+
+
+function findBestMove(player) {
+    const winPatterns = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6],
+    ];
+
+    for (let pattern of winPatterns) {
+        const [a, b, c] = pattern;
+        if (board[a] === player && board[b] === player && board[c] === null) return c;
+        if (board[a] === player && board[c] === player && board[b] === null) return b;
+        if (board[b] === player && board[c] === player && board[a] === null) return a;
+    }
+
+    return null;
 }
 
 
