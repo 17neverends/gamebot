@@ -19,6 +19,9 @@
     <div class="restart-button">
       <button id="restart-button"></button>
     </div>
+    <div class="question-button">
+      <button id="question-button"></button>
+    </div>
     <div class="timer">
         <span id="timer">00:00</span>
     </div>
@@ -85,6 +88,20 @@
           <h2>Игра завершена!</h2>
           <p id="resultMessage"></p>
           <button id="newGameButton">Новая игра</button>
+      </div>
+  </div>
+    <div id="rules" class="modal">
+      <div class="modal-content">
+          <span class="close" id="closeRuleModal">&times;</span>
+          <h2>Правила игры</h2>
+          <div id="rules-text">
+            <p>1. Слово состоит из 5 букв.</p>
+            <p>2. Каждая буква может быть использована только один раз.</p>
+            <p>3. Правильные буквы выделены зеленым цветом</p>
+            <p>4. Буквы, входящие в слово, но не своей позиции, выделены желтым цветом</p>
+            <p>5. Если слово не угадано за 6 попыток, игра заканчивается.</p>
+          </div>
+          <button id="continueGame">Продолжить игру</button>
       </div>
   </div>
   <div id="popup" class="modal" style="display:none;">

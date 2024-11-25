@@ -5,6 +5,24 @@ document.addEventListener("DOMContentLoaded", () => {
   let name;
   let tg_id;
   let entry_date = new Date().toISOString(); 
+  const questionButton = document.getElementById("question-button");
+  const rulesModal = document.getElementById("rules");
+  const closeRuleModal = document.getElementById("closeRuleModal");
+  const continueGame = document.getElementById("continueGame");
+
+  questionButton.addEventListener("click", () => {
+    rulesModal.style.display = "flex";
+  });
+
+  closeRuleModal.addEventListener("click", () => {
+    rulesModal.style.display = "none";
+  })
+
+  continueGame.addEventListener("click", () => {
+    rulesModal.style.display = "none";
+  })
+
+
 
   let guessedWords = [[]];
   let availableSpace = 1;
@@ -14,6 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
     "МАРИЯ",
     "ГОРОД",
     "ПОЛКА",
+    "АРБУЗ",
+    "САЛОН",
+    "КРАСА",
+    "СПРЕЙ",
+    "СЛИВА",
+    'СОВЕТ',
+    'БЛАГО',
   ];
 
   let word = dictionary[Math.floor(Math.random() * dictionary.length)].toUpperCase();
