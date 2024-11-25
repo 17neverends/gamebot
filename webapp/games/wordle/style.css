@@ -367,8 +367,7 @@ header {
 }
 
 .rules-text   p {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 
