@@ -157,31 +157,7 @@ body
   }
 
 
-  body {
-    overflow: hidden;
-    background-image: url(/static/backneon1.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    user-select: none;
-    margin: 0;
-    backdrop-filter: blur(20px);
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
 
-.board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-}
 
 .cell {
     width: 100px;
@@ -340,34 +316,7 @@ body
     color: white;
   }
   
-  .leaderboard {
-    margin-top: 20px;
-  }
   
-  .leader-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    font-size: 16px;
-  }
-  
-  .leader-icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .leader-number {
-    font-weight: bold;
-    font-size: 18px;
-    margin-right: 10px;
-  }
-  
-  .leader-name {
-    flex-grow: 1;
-  }
   
   .you-label {
     font-weight: bold;
@@ -382,29 +331,6 @@ body
     color: #fff;
   }
   
-  .restart-button button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border: none;
-    cursor: pointer;
-    background-image: url(/static/image.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    font-size: 24px;
-    padding: 0;
-    transition: transform 0.3s ease;
-  }
-  
-  .restart-button button:hover {
-    transform: scale(1.1);
-  }
-
-
 
 @media (max-width: 800px) {
 
@@ -415,11 +341,6 @@ body
 }
 
 @media (max-width: 500px) {
-    .board {
-      grid-template-columns: repeat(3, 80px);
-      grid-template-rows: repeat(3, 80px);
-  }
-
   .cell {
       width: 80px;
       height: 80px;
