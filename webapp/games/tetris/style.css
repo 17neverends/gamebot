@@ -83,8 +83,8 @@ body
 
 #gameBoard {
   background-color: #8a8a8a;
-  width: 160px;
-  height: 320px;
+  width: 320px;
+  height: 640px;
   margin: 0 auto;
   border: 2px solid #6e6e7b;
   transform-origin: center;
