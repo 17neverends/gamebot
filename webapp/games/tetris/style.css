@@ -341,28 +341,6 @@ body
 }
 
 @media (max-width: 500px) {
-  .cell {
-      width: 80px;
-      height: 80px;
-      font-size: 1.5rem;
-      line-height: 80px;
-  }
-
-  .emoji-button {
-    width: 30px;
-    height: 30px;
-    font-size: 15px;
-    line-height: 30px;
-    text-align: center;
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 2px solid white;
-    border-radius: 12px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    }
-    
   #score {
     font-size: 12pt;
   }
