@@ -1,6 +1,6 @@
 var ROWS = 20;
 var COLS = 10;
-var SIZE = 16;
+var SIZE = 32;
 const closeModalButton = document.getElementById('closeModal');
 const newGameButton = document.getElementById('newGameButton');
 const startGameButton = document.getElementById('start-game-button');
@@ -33,8 +33,8 @@ var touchId;
 function onReady(){
   imageLoader = new bulkImageLoader();
   imageLoader.addImage("/static/blocks.png", "blocks");
-  // imageLoader.addImage("/static/bg.png", "background");
-  // imageLoader.addImage("/static/over.png", "gameover");
+  imageLoader.addImage("/static/bg.png", "background");
+  imageLoader.addImage("/static/over.png", "gameover");
   imageLoader.onReadyCallback = onImagesLoaded;
   imageLoader.loadImages();
 
@@ -149,7 +149,7 @@ function update(){
       previousTime = currentTime;
     }
 
-    ctx.clearRect(0, 0, 160, 320);
+    ctx.clearRect(0, 0, 320, 640);
     drawBoard();
     drawPiece(currentPiece);
 
