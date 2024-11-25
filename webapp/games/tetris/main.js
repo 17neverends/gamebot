@@ -13,6 +13,8 @@ const entry_date = new Date().toISOString();
 var canvas;
 var ctx;
 var blockImage;
+var backgroundImage;
+var gameOverImage;
 
 var currentPiece;
 var gameData;
@@ -91,6 +93,8 @@ function getInput(event){
 
 function onImagesLoaded(event){
   blockImage = imageLoader.getImageAtIndex(0);
+  backgroundImage = imageLoader.getImageAtIndex(1);
+  gameOverImage = imageLoader.getImageAtIndex(2);
 }
 
 function pauseGame(){
@@ -155,7 +159,9 @@ function update(){
 
     if(isGameOver === false){
       requestAnimationFrame(update);
-    } 
+    } else {
+      ctx.drawImage(gameOverImage, 0, 0, 320, 640, 0, 0, 320, 640);
+    }
   }
 }
 
@@ -251,6 +257,7 @@ function zeroRow(row){
 }
 
 function drawBoard(){
+  ctx.drawImage(backgroundImage, 0, 0, 320, 640, 0, 0, 320, 640);
 
   for(var r = 0; r < ROWS; r++){
     for(var c = 0; c < COLS; c++){
