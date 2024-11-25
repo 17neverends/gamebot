@@ -364,11 +364,11 @@ header {
   margin: 0 auto;
   margin-top: 10px;
 
-  & p {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+}
 
+.rules-text   p {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 
