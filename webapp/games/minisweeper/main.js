@@ -34,7 +34,7 @@ function changeLevel() {
   const levelKeys = Object.keys(levels);
   const currentIndex = levelKeys.indexOf(currentLevel);
   currentLevel = levelKeys[(currentIndex + 1) % levelKeys.length];
-  document.getElementById("current-difficulty").innerText = currentLevel;
+  document.getElementById('difficulty-level').innerText = `Сложность: ${currentLevel}`;
   resetGame();
 }
 
