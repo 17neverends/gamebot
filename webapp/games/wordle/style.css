@@ -330,6 +330,7 @@ header {
   transition: background-color 0.3s, color 0.3s;
 }
 
+
 #newGameButton:hover {
   background-color: black;
   color: white;

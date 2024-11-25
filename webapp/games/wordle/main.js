@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeRuleModal = document.getElementById("closeRuleModal");
   const continueGame = document.getElementById("continueGame");
 
+  
   questionButton.addEventListener("click", () => {
     rulesModal.style.display = "flex";
   });
