@@ -196,6 +196,22 @@ header {
   background-color: black;
   color: white;
 }
+#continueGame {
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#continueGame:hover {
+  background-color: black;
+  color: white;
+}
 
 #popup button {
   background-color: transparent;
@@ -347,6 +363,12 @@ header {
   text-align: center;
   margin: 0 auto;
   margin-top: 10px;
+
+  & p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
 }
 
 
