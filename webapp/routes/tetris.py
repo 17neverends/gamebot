@@ -26,7 +26,7 @@ async def get_user(level: str, authorization: Optional[str] = Header(default=Non
         repository = TetrisRepository(session=session)
         leaderboard = await repository.get_leaderboard(level=level)
     response = {
-        "leaderboard": leaderboard,
+        "leaderboard": leaderboard[::-1],
         "tg_id": tg_data.get("id"),
         "name": tg_data.get("username")
     }
