@@ -24,7 +24,6 @@ class TetrisRepository:
             .limit(3)
         )
         records = result.fetchall()
-        print(records)
         return [{"name": record[2],
                  "score": record[0],
                  "tg_id": record[1]} for record in records]

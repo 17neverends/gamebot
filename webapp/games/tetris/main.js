@@ -459,8 +459,6 @@ function renderLeaderboard(data) {
   const leaderboardElement = document.getElementById('leaderboard');
   leaderboardElement.innerHTML = '';
 
-  data.leaderboard.sort((a, b) => a.score - b.score);
-
   data.leaderboard.forEach((leader, index) => {
       const leaderRow = document.createElement('div');
       leaderRow.classList.add('leader-row');
