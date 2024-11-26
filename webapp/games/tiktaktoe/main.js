@@ -284,6 +284,12 @@ function renderLeaderboard(data) {
   
         leaderboardElement.appendChild(leaderRow);
     });
+    if (data.leaderboard.length === 0) {
+        const leaderRow = document.createElement('div');
+        leaderRow.classList.add('leader-row');
+        leaderRow.innerHTML = '<span class="leader-name">Таблица лидеров пуста</span>';
+        leaderboardElement.appendChild(leaderRow);
+    }
   
     document.getElementById('popup').style.display = 'block';
   }
