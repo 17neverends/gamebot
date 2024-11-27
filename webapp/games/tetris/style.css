@@ -57,21 +57,21 @@ body
 	margin-top: 20px;
   }
   
-  .emoji-button {
-    width: 60px;
-    height: 60px;
-    font-size: 32px;
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 2px solid white;
-    border-radius: 12px;
-    margin: 0 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.3s;
+.emoji-button {
+  width: 60px;
+  height: 60px;
+  font-size: 32px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 12px;
+  margin: 0 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .emoji-button:hover {
