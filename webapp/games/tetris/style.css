@@ -1,4 +1,6 @@
-
+* {
+  touch-action: manipulation;
+}
 
 body
 {
