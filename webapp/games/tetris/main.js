@@ -1,6 +1,6 @@
 var ROWS = 20;
 var COLS = 10;
-var SIZE = 16;
+var SIZE = 32;
 const closeModalButton = document.getElementById('closeModal');
 const newGameButton = document.getElementById('newGameButton');
 const startGameButton = document.getElementById('start-game-button');
@@ -13,6 +13,8 @@ const entry_date = new Date().toISOString();
 var canvas;
 var ctx;
 var blockImage;
+var backgroundImage;
+var gameOverImage;
 
 var currentPiece;
 var gameData;
@@ -33,8 +35,8 @@ var touchId;
 function onReady(){
   imageLoader = new bulkImageLoader();
   imageLoader.addImage("/static/blocks.png", "blocks");
-  // imageLoader.addImage("/static/bg.png", "background");
-  // imageLoader.addImage("/static/over.png", "gameover");
+  imageLoader.addImage("/static/bg.png", "background");
+  imageLoader.addImage("/static/over.png", "gameover");
   imageLoader.onReadyCallback = onImagesLoaded;
   imageLoader.loadImages();
 
@@ -91,6 +93,8 @@ function getInput(event){
 
 function onImagesLoaded(event){
   blockImage = imageLoader.getImageAtIndex(0);
+  backgroundImage = imageLoader.getImageAtIndex(1);
+  gameOverImage = imageLoader.getImageAtIndex(2);
 }
 
 function pauseGame(){
@@ -149,13 +153,15 @@ function update(){
       previousTime = currentTime;
     }
 
-    ctx.clearRect(0, 0, 160, 320);
+    ctx.clearRect(0, 0, 320, 640);
     drawBoard();
     drawPiece(currentPiece);
 
     if(isGameOver === false){
       requestAnimationFrame(update);
-    } 
+    } else {
+      ctx.drawImage(gameOverImage, 0, 0, 320, 640, 0, 0, 320, 640);
+    }
   }
 }
 
@@ -251,6 +257,7 @@ function zeroRow(row){
 }
 
 function drawBoard(){
+  ctx.drawImage(backgroundImage, 0, 0, 320, 640, 0, 0, 320, 640);
 
   for(var r = 0; r < ROWS; r++){
     for(var c = 0; c < COLS; c++){
@@ -452,8 +459,6 @@ function renderLeaderboard(data) {
   const leaderboardElement = document.getElementById('leaderboard');
   leaderboardElement.innerHTML = '';
 
-  data.leaderboard.sort((a, b) => a.score - b.score);
-
   data.leaderboard.forEach((leader, index) => {
       const leaderRow = document.createElement('div');
       leaderRow.classList.add('leader-row');
@@ -480,6 +485,12 @@ function renderLeaderboard(data) {
 
       leaderboardElement.appendChild(leaderRow);
   });
+  if (data.leaderboard.length === 0) {
+      const leaderRow = document.createElement('div');
+      leaderRow.classList.add('leader-row');
+      leaderRow.innerHTML = '<span class="leader-name">Таблица лидеров пуста</span>';
+      leaderboardElement.appendChild(leaderRow);
+  }
 
   document.getElementById('popup').style.display = 'block';
 }

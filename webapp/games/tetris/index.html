@@ -1,12 +1,12 @@
 <!DOCTYPE html>
   <head>
     <title>Tetris</title>
-    <link rel="stylesheet" type="text/css" href="/games/tetris/style.css?v=10">
+    <link rel="stylesheet" type="text/css" href="/games/tetris/style.css?v=18">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
   </head>
   <body>
@@ -36,27 +36,30 @@
       </div>
     </div>
 
-    <div class="difficulty">
-      <h3 id="difficulty-level" onclick="toggleDifficulty()">Сложность: <span id="current-difficulty">Легкая</span></h3>
-    </div>
-    <div id="score">
-      <p>Счет: <span id="lines"></span></p>
-      <button id="pause-button" onclick="toggleGame()"></button>
+
+    <div id="scale">
+      <div class="difficulty">
+        <h3 id="difficulty-level" onclick="toggleDifficulty()">Сложность: <span id="current-difficulty">Легкая</span></h3>
+      </div>
+      <div id="score">
+        <p>Счет: <span id="lines"></span></p>
+        <button id="pause-button" onclick="toggleGame()"></button>
+      </div>
+      <div id="gameBoard">
+        <canvas id="gameCanvas" width="320" height="640"></canvas>
+      </div>
+  
+  
+      <div class="action-buttons">
+        <button class="emoji-button" onclick="moveLeft()">👈</button>
+        <button class="emoji-button" onclick="rotatePiece()">🔁</button>
+        <button class="emoji-button" onclick="moveRight()">👉</button>
+      </div>
     </div>
     
-    <div id="gameBoard">
-      <canvas id="gameCanvas" width="160" height="320"></canvas>
-    </div>
-
-
-    <div class="action-buttons">
-      <button class="emoji-button" onclick="moveLeft()">👈</button>
-      <button class="emoji-button" onclick="rotatePiece()">🔁</button>
-      <button class="emoji-button" onclick="moveRight()">👉</button>
-    </div>
 
     <script type="text/javascript" src="/games/tetris/pieces.js?v=1"></script>
     <script type="text/javascript" src="/games/tetris/bulkImageLoader.js?v=1"></script>
-    <script type="text/javascript" src="/games/tetris/main.js?v=16"></script>
+    <script type="text/javascript" src="/games/tetris/main.js?v=20"></script>
   </body>
 </html>

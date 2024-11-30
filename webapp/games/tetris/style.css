@@ -1,3 +1,7 @@
+* {
+  touch-action: manipulation;
+}
+
 body
 {
 	overflow: hidden;
@@ -13,7 +17,6 @@ body
 	height: 100vh;
 	user-select: none;
 	margin: 0;
-	backdrop-filter: blur(20px);
 	font-family: "Roboto", sans-serif;
 	font-weight: 400;
 	font-style: normal;
@@ -54,21 +57,21 @@ body
 	margin-top: 20px;
   }
   
-  .emoji-button {
-    width: 60px;
-    height: 60px;
-    font-size: 32px;
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 2px solid white;
-    border-radius: 12px;
-    margin: 0 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.3s;
+.emoji-button {
+  width: 60px;
+  height: 60px;
+  font-size: 32px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 12px;
+  margin: 0 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .emoji-button:hover {
@@ -82,9 +85,8 @@ body
   
 
 #gameBoard {
-  background-color: #8a8a8a;
-  width: 160px;
-  height: 320px;
+  width: 320px;
+  height: 640px;
   margin: 0 auto;
   border: 2px solid #6e6e7b;
   transform-origin: center;
@@ -96,7 +98,7 @@ body
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	font-size: 18pt;
+	font-size: 24pt;
 	font-family: sans-serif, verdana;
 	color: #fefefe;
 	width: 160px;
@@ -333,6 +335,10 @@ body
     font-size: 24px;
     font-weight: bold;
     color: #fff;
+  }
+
+  #scale {
+    scale: 0.6;
   }
   
 
