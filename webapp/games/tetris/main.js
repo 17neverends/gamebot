@@ -31,6 +31,54 @@ var touchX;
 var touchY;
 var touchId;
 
+let startX = 0;
+let startY = 0;
+let endX = 0;
+let endY = 0;
+
+
+function handleTouchStart(event) {
+  const touch = event.touches[0];
+  startX = touch.clientX;
+  startY = touch.clientY;
+}
+
+function handleTouchMove(event) {
+  const touch = event.touches[0];
+  endX = touch.clientX;
+  endY = touch.clientY;
+}
+
+
+function handleTouchEnd() {
+  const dx = endX - startX;
+  const dy = endY - startY;
+
+  if (Math.abs(dx) > Math.abs(dy)) {
+    if (dx > 30) {
+      moveRight();
+    } else if (dx < -30) {
+      moveLeft();
+    }
+  } else {
+    if (dy > 30) {
+      if (checkMove(currentPiece.gridX, currentPiece.gridY + 1, currentPiece.currentState)) {
+        currentPiece.gridY++;
+      }
+    } else if (dy < -30) {
+      rotatePiece();
+    }
+  }
+
+  startX = 0;
+  startY = 0;
+  endX = 0;
+  endY = 0;
+}
+canvas = document.getElementById("gameCanvas");
+canvas.addEventListener("touchstart", handleTouchStart);
+canvas.addEventListener("touchmove", handleTouchMove);
+canvas.addEventListener("touchend", handleTouchEnd);
 
 function onReady(){
   imageLoader = new bulkImageLoader();
@@ -40,7 +88,6 @@ function onReady(){
   imageLoader.onReadyCallback = onImagesLoaded;
   imageLoader.loadImages();
 
-  canvas = document.getElementById("gameCanvas");
   lineSpan = document.getElementById("lines");
   ctx = canvas.getContext("2d");
 
