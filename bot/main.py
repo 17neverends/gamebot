@@ -94,7 +94,7 @@ async def referal_handler(message: types.Message):
 
 @dp.message(Command("hello"))
 async def hello_handler(message: types.Message):
-    keyboard = InlineKeyboardBuilder(row_width=2)
+    keyboard = InlineKeyboardBuilder()
     for callback_data, button_text in start_keyboard_text.get("button_text").items():
         keyboard.add(InlineKeyboardBuilder(text=button_text, callback_data=callback_data))
     
