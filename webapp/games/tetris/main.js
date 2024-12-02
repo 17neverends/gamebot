@@ -573,4 +573,3 @@ function showModal() {
   resultMessage.innerText = `Игра окончена! Ваш результат: ${currentLines}`;
   modal.style.display = "block";
 }
-eruda.init();
