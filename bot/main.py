@@ -3,14 +3,16 @@ import logging
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart, CommandObject, Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-from aiogram.types import WebAppInfo
+from aiogram.types import WebAppInfo, CallbackQuery
 from tasks_shared.models.user.repository import UserRepository
 from tasks_shared.database_utils import get_session
 from tasks_shared.models.user.schemas import UserCreate
 from tasks_shared.database_utils import cook_models
 from tasks_shared.database import init_db
-
 from settings import settings
+from bot.utils.localize import start_keyboard_text, welcome_text
+
+
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=settings.bot_token)
@@ -88,6 +90,19 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
 @dp.message(Command("referal"))
 async def referal_handler(message: types.Message):
     await message.answer(f'https://t.me/{settings.bot_name}?start=user_{message.from_user.id}')
+
+
+@dp.message(Command("hello"))
+async def hello_handler(message: types.Message):
+    keyboard = InlineKeyboardBuilder(row_width=2)
+    for callback_data, button_text in start_keyboard_text.get("button_text").items():
+        keyboard.add(InlineKeyboardBuilder(text=button_text, callback_data=callback_data))
+    
+    await message.answer(
+        text=start_keyboard_text.get("message_text"),
+        reply_markup=keyboard
+    )
+
 
 
 async def main():

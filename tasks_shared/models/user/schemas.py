@@ -10,6 +10,7 @@ class UserBase(BaseModel):
     visits_count: Optional[int] = 0
     referal_count: Optional[int] = 0
     blocked: Optional[bool] = False
+    lang: Optional[str]
 
 
 class UserCreate(UserBase):
@@ -22,6 +23,7 @@ class UserUpdate(BaseModel):
     visits_count: Optional[int]
     referal_count: Optional[int]
     blocked: Optional[bool]
+    lang: Optional[str]
 
 
 class UserInDBBase(UserBase):

@@ -14,6 +14,7 @@ class User(Base, TimestampMixin):
     visits_count: Mapped[int] = mapped_column(default=0)
     referal_count: Mapped[int] = mapped_column(default=0)
     blocked: Mapped[bool] = mapped_column(default=False)
+    lang : Mapped[str] = mapped_column(nullable=True)
 
     class Config:
         orm_mode = True
