@@ -96,7 +96,7 @@ async def referal_handler(message: types.Message):
 async def hello_handler(message: types.Message):
     keyboard = InlineKeyboardBuilder()
     for callback_data, button_text in start_keyboard_text.get("button_text").items():
-        keyboard.add(InlineKeyboardBuilder(text=button_text, callback_data=callback_data))
+        keyboard.add(types.InlineKeyboardButton(text=button_text, callback_data=callback_data))
     
     await message.answer(
         text=start_keyboard_text.get("message_text"),
