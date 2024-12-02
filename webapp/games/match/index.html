@@ -21,6 +21,9 @@
       <div id="unity-warning"> </div>
     </div>
     <script>
+      window.Telegram.WebApp.isClosingConfirmationEnabled = true;
+      window.Telegram.WebApp.disableVerticalSwipes();
+      window.Telegram.WebApp.requestFullscreen();
       let entry_date = new Date().toISOString();
       window.addEventListener("DOMContentLoaded", function () {
           fetch("/match/save_result", {
