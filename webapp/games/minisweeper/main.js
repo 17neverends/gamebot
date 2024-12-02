@@ -2,7 +2,9 @@ let selectedAction = null;
 let name;
 let tg_id;
 let entry_date = new Date().toISOString(); 
-
+window.Telegram.WebApp.isClosingConfirmationEnabled = true;
+window.Telegram.WebApp.disableVerticalSwipes();
+window.Telegram.WebApp.requestFullscreen();
 document.getElementById('open-btn').addEventListener('click', () => {
   selectedAction = 'open';
   document.getElementById('open-btn').classList.add('selected');

@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
+  window.Telegram.WebApp.isClosingConfirmationEnabled = true;
+  window.Telegram.WebApp.disableVerticalSwipes();
+  window.Telegram.WebApp.requestFullscreen();
   let timerInterval;
   let startTime;
   let name;

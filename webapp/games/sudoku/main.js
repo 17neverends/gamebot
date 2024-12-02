@@ -4,7 +4,9 @@ let name;
 let tg_id;
 let entry_date = new Date().toISOString(); 
 let currentLevel = "Легкая";
-
+window.Telegram.WebApp.isClosingConfirmationEnabled = true;
+window.Telegram.WebApp.disableVerticalSwipes();
+window.Telegram.WebApp.requestFullscreen();
 
 const sudokuLevels = {
   "Легкая": [

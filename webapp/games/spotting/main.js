@@ -3,7 +3,9 @@ let startTime;
 let name;
 let tg_id;
 const entry_date = new Date().toISOString();
-
+window.Telegram.WebApp.isClosingConfirmationEnabled = true;
+window.Telegram.WebApp.disableVerticalSwipes();
+window.Telegram.WebApp.requestFullscreen();
 async function get_data() {
     const response = await fetch(`/spotting/leaderboard`, {
       method: 'GET',

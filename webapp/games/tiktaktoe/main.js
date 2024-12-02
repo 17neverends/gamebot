@@ -4,7 +4,9 @@ const modalMessage = document.getElementById('resultMessage');
 const closeModalButton = document.getElementById('closeModal');
 const newGameButton = document.getElementById('newGameButton');
 const startGameButton = document.getElementById('start-game-button');
-
+window.Telegram.WebApp.isClosingConfirmationEnabled = true;
+window.Telegram.WebApp.disableVerticalSwipes();
+window.Telegram.WebApp.requestFullscreen();
 let timerInterval;
 let startTime;
 let name;
