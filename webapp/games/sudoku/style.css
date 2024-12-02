@@ -194,8 +194,8 @@ body {
 
 .timer {
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 100px;
+  left: 20px;
   font-size: 24px;
   font-weight: bold;
   color: #fff;
@@ -203,8 +203,8 @@ body {
 
 .restart-button button {
   position: absolute;
-  top: 50px;
-  right: 50px;
+  top: 100px;
+  right: 20px;
   width: 50px;
   height: 50px;
   border: none;
@@ -235,7 +235,7 @@ body {
 
 .hint-button button {
   position: absolute;
-  top: 150px;
+  top: 170px;
   right: 20px;
   width: 50px;
   height: 50px;
@@ -373,6 +373,15 @@ body {
     line-height: 35px;
     font-size: 14px;
   }
+  .restart-button button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hint-button button {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -392,5 +401,14 @@ body {
     height: 25px;
     line-height: 25px;
     font-size: 12px;
+  }
+  .restart-button button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hint-button button {
+    width: 30px;
+    height: 30px;
   }
 }
