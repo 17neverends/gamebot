@@ -100,7 +100,7 @@ async def hello_handler(message: types.Message):
     
     await message.answer(
         text=start_keyboard_text.get("message_text"),
-        reply_markup=keyboard
+        reply_markup=keyboard.as_markup()
     )
 
 
