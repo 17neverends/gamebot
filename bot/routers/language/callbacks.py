@@ -15,7 +15,7 @@ async def callbacks_lang_change(callback: types.CallbackQuery,
         update_model = UserUpdate(language=callback_data.value).model_dump()
         async with get_session() as session:
             repository = UserRepository(session)
-            updated_user =await repository.update_user_by_tg_id(tg_id=callback.from_user.id,
+            updated_user = await repository.update_user_by_tg_id(tg_id=callback.from_user.id,
                                                   user_update=update_model)
     await callback.message.delete()
     await send_greeting(callback.message, updated_user.lang)
