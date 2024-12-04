@@ -12,6 +12,7 @@ let columnsConfig = [
   { key: 'referal_count', label: 'Привел пользователей', width: 300, type: "numeric"},
   { key: 'total_time', label: 'Время в боте', width: 300, type: "numeric"},
   { key: 'exit_counts', label: 'Кол-во отказов', width: 300, type: "numeric"},
+  { key: 'lang', label: 'Язык', width: 200, type: "varchar"},
   { key: 'blocked', label: 'Заблокирован?', width: 200, type: "boolean"},
 ];
 
