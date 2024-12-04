@@ -10,6 +10,5 @@ async def send_games(message: types.Message, language: str) -> None:
 async def send_choose_game(message: types.Message,
                            language: str,
                            game: str) -> None:
-    print(game, language)
     await message.answer(text=games_description.get(game).get(language),
                          reply_markup=await game_handler(game=game, language=language))
