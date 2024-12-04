@@ -40,7 +40,7 @@ class UserRepository:
                                    user_update: UserUpdate) -> Optional[UserSchema]:
         await self.session.execute(
             update(User).where(User.tg_id == tg_id)
-            .values(**user_update)
+            .values(**user_update.model_dump(exclude_unset=True, exclude_none=True))
         )
 
         await self.session.commit()
