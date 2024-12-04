@@ -11,11 +11,14 @@ router = Router()
 @router.callback_query(LanguageCallbackFactory.filter())
 async def callbacks_lang_change(callback: types.CallbackQuery, 
                                 callback_data: LanguageCallbackFactory):
+    print(callback_data)
     if callback_data.action == "change":
         update_model = UserUpdate(language=callback_data.value)
         async with get_session() as session:
             repository = UserRepository(session)
             updated_user = await repository.update_user_by_tg_id(tg_id=callback.from_user.id,
-                                                  user_update=update_model)
-    await callback.message.delete()
-    await send_greeting(callback.message, updated_user.lang)
+                                                                 user_update=update_model)
+    if updated_user:
+        print(updated_user)
+        await callback.message.delete()
+        await send_greeting(callback.message, updated_user.lang)
