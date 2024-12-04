@@ -26,7 +26,7 @@ games_text = {
 
 
 games_description = {
-    "1": {
+    "match": {
         "ru": """3 в ряд — это классическая головоломка, в которой вам нужно соединить три одинаковых элемента или более, чтобы пройти уровень. Игра становится всё сложнее по мере прохождения уровней, но это только делает её интереснее!✨ Совет: Ищите скрытые комбинации, чтобы быстрее пройти уровни.""",
         "gb": """3 in a Row is a classic puzzle game where you need to match three or more similar elements to pass a level. The game gets more challenging as you progress, but that only makes it more fun!✨ Tip: Look for hidden combinations to progress faster.""",
         "in": """3 इन ए रो एक मजेदार और सरल खेल है, जिसमें आपको तीन या उससे अधिक समान तत्वों को जोड़ना होता है। जैसे-जैसे आप स्तरों को पार करते जाएंगे, खेल और भी कठिन होता जाएगा!✨ सुझाव: छिपे हुए संयोजनों को ढूंढें और खेल में तेजी से प्रगति करें।"""

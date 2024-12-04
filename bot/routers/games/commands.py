@@ -41,8 +41,8 @@ async def callbacks_choose_game(message: types.Message):
         message.answer(value_error_text.get(user.lang))
         return
         
-    for k, _ in games_dict.items():
+    for k, v in games_dict.items():
         if message.text == k:
             await send_choose_game(message=message,
                                    language=user.lang,
-                                   game=k)
+                                   game=v)
