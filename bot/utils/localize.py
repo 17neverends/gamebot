@@ -1,3 +1,6 @@
+from bot.utils.games import games_dict
+
+
 start_keyboard_text = {
     "message_text": "Выберите язык",
     "button_text": {
@@ -40,4 +43,11 @@ open_game_text = {
     "ru": "Открыть игру",
     "gb": "Open game",
     "in": "खेल खोलें"
+}
+
+
+value_error_text = {
+    "ru": f"Выберите значение от 1 до {len(games_dict)}",
+    "gb": f"Select a value between 1 and {len(games_dict)}",
+    "in": f"1 से {len(games_dict)} के बीच का वैल्यू चुनें"
 }

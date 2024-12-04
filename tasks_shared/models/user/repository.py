@@ -38,7 +38,6 @@ class UserRepository:
     async def update_user_by_tg_id(self,
                                    tg_id: int,
                                    user_update: UserUpdate) -> Optional[UserSchema]:
-        print(user_update)
         await self.session.execute(
             update(User).where(User.tg_id == tg_id)
             .values(**user_update.model_dump(exclude_unset=True, exclude_none=True))
