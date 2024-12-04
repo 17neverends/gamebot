@@ -1,3 +1,4 @@
+from bot.routers.games.message import send_games
 from bot.routers.language.kb import lang_handler
 from aiogram.filters import CommandStart, CommandObject
 from aiogram import Router, types
@@ -27,6 +28,8 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
                 await message.answer("ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await lang_handler())
                 return
             await send_greeting(message=message, language=user.lang)
+            await send_games(message=message, language=user.lang)
+
 
         if command.args:
             splitted_args = command.args.split("_")
