@@ -1,6 +1,6 @@
 from bot.routers.games.message import send_games
 from bot.routers.language.kb import lang_handler
-from aiogram.filters import CommandStart, CommandObject
+from aiogram.filters import CommandStart, CommandObject, Command
 from aiogram import Router, types
 from tasks_shared.models.user.repository import UserRepository
 from tasks_shared.database_utils import get_session
@@ -47,3 +47,9 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
                         tg_id=int(ref_id),
                         field_name="referal_count"
                     )
+
+
+
+@router.message(Command("lang"))
+async def lang_handler(message: types.Message) -> None:
+    await message.answer("ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await lang_handler())
