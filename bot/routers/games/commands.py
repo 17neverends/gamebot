@@ -35,11 +35,6 @@ async def callbacks_choose_game(message: types.Message):
         if not user.lang:
             await message.answer("ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await lang_handler())
             return
-    try:
-        int(message.text)
-    except ValueError:
-        message.answer(value_error_text.get(user.lang))
-        return
         
     for k, v in games_dict.items():
         if message.text == k:
