@@ -6,7 +6,6 @@ from tasks_shared.database_utils import get_session
 from tasks_shared.models.user.schemas import UserUpdate
 from bot.routers.games.commands import send_games
 from bot.utils.config import set_commands
-from bot.main import new_bot
 
 
 router = Router()
@@ -15,6 +14,7 @@ router = Router()
 @router.callback_query(LanguageCallbackFactory.filter())
 async def callbacks_lang_change(callback: types.CallbackQuery, 
                                 callback_data: LanguageCallbackFactory):
+    from bot.main import new_bot
     if callback_data.action == "change":
         update_model = UserUpdate(lang=callback_data.value)
         async with get_session() as session:
