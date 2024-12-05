@@ -14,6 +14,6 @@ coincidence_dict = {
     "tiktaktoe": ["крестики", "крестики-нолики", "крестикинолики", "нолики", "крестики нолики", "tictactoe", "tic-tac-toe"],
     "minisweeper": ["сапёр", "сапер", "minisweeper"],
     "tetris": ["тетрис", "tetris"],
-    "spotting": ["spotting", "fifteen", "spottinggame", "spotting game", "spotting_game", "spotting_game", "пятнашки"],
+    "spotting": ["spotting", "fifteen", "spotting game", "spotting_game", "spotting_game", "пятнашки"],
     "wordle": ["wordle", "вордли"]
 }

@@ -43,11 +43,10 @@ async def callbacks_choose_game(message: types.Message):
                                    game=v)
             return
     for k, v in coincidence_dict.items():
-        print(k, v)
         if message.text in v:
             await send_choose_game(message=message,
                                    language=user.lang,
                                    game=k)
             return
     
-    await message.answer("Не удалось найти игру, попробуйте ещё раз")
+    await message.answer(value_error_text.get(user.lang))
