@@ -22,10 +22,10 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
         user = await repository.get_user_by_tg_id(tg_id)
         if not user:
             await repository.add_user(UserCreate(tg_id=tg_id, comings_from=comings_from, username=username))
-            await message.answer(message="ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await lang_handler())
+            await message.answer(text="ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await lang_handler())
         else:
             if not user.lang:
-                await message.answer(message="ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await lang_handler())
+                await message.answer(text="ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await lang_handler())
                 return
             await send_greeting(message=message, language=user.lang)
             await send_games(message=message, language=user.lang)
@@ -52,4 +52,4 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
 
 @router.message(Command("lang"))
 async def lang_command(message: types.Message) -> None:
-    await message.answer(message="ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await lang_handler())
+    await message.answer(text="ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await lang_handler())
