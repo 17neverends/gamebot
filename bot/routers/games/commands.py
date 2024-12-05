@@ -4,7 +4,7 @@ from aiogram import Router, types, F
 from tasks_shared.models.user.repository import UserRepository
 from tasks_shared.database_utils import get_session
 from bot.routers.games.message import send_games
-from bot.utils.games import games_dict
+from bot.utils.games import games_dict, coincidence_dict
 from bot.utils.localize import value_error_text
 from bot.routers.games.message import send_choose_game
 
@@ -46,3 +46,10 @@ async def callbacks_choose_game(message: types.Message):
             await send_choose_game(message=message,
                                    language=user.lang,
                                    game=v)
+    for k, v in coincidence_dict.items():
+        if message.text == v:
+            await send_choose_game(message=message,
+                                   language=user.lang,
+                                   game=k)
+    
+    await message.answer("Не удалось найти игру, попробуйте ещё раз")

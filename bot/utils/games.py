@@ -7,3 +7,13 @@ games_dict = {
     "6": "spotting",
     "7": "wordle"
 }
+
+coincidence_dict = {
+    "match": ["3 в ряд", "3вряд", "match", "match3inrow", "match3inarow", "match 3 in row"],
+    "sudoku": ["судоку", "судока", "судок", "sudoku"],
+    "tiktaktoe": ["крестики", "крестики-нолики", "крестикинолики", "нолики", "крестики нолики", "tictactoe", "tic-tac-toe"],
+    "minisweeper": ["сапёр", "сапер", "minisweeper"],
+    "tetris": ["тетрис", "tetris"],
+    "spotting": ["spotting", "fifteen", "spottinggame", "spotting game", "spotting_game", "spotting_game", "пятнашки"],
+    "wordle": ["wordle", "вордли"]
+}
