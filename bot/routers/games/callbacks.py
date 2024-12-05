@@ -11,3 +11,5 @@ async def callbacks_back_event(callback: types.CallbackQuery,
                                callback_data: BackCallbackFactory):
     if callback_data.action == "back":
         await send_games(message=callback.message, language=callback_data.language)
+
+    await callback.message.delete()
