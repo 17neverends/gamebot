@@ -82,3 +82,17 @@ back_event = {
     "gb": "Back",
     "in": "बैक"
 }
+
+
+command_text = {
+    "lang": {
+        "ru": "Выберите язык",
+        "gb": "Select language",
+        "in": "भाषा चुनें"
+    },
+    "games": {
+        "ru": "Выберите игру",
+        "gb": "Select game",
+        "in": "खेल चुनें"
+    }
+}

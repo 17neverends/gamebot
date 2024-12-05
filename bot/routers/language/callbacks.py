@@ -5,6 +5,8 @@ from tasks_shared.models.user.repository import UserRepository
 from tasks_shared.database_utils import get_session
 from tasks_shared.models.user.schemas import UserUpdate
 from bot.routers.games.commands import send_games
+from bot.utils.config import set_commands
+from bot.main import bot
 
 
 router = Router()
@@ -20,6 +22,7 @@ async def callbacks_lang_change(callback: types.CallbackQuery,
             updated_user = await repository.update_user_by_tg_id(tg_id=callback.from_user.id,
                                                                  user_update=update_model)
     if updated_user:
+        await set_commands(bot=bot, language=updated_user.lang)
         await callback.message.delete()
         await send_greeting(callback.message, updated_user.lang)
         await send_games(callback.message, updated_user.lang)
