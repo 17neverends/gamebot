@@ -10,8 +10,8 @@ from bot.routers.games.factory import BackCallbackFactory
 async def game_handler(game: str, language: str):
     builder = InlineKeyboardBuilder()
     callback_data = BackCallbackFactory(action="back", language=language)
-    builder.add(types.InlineKeyboardButton(text=f"{back_event.get(language)} 🔙",
-                                           callback_data=callback_data))
+    builder.button(types.InlineKeyboardButton(text=f"{back_event.get(language)} 🔙",
+                                              callback_data=callback_data))
     builder.add(types.InlineKeyboardButton(
                             text=open_game_text.get(language),
                             web_app=WebAppInfo(url=f"{settings.domain}/{game}?lang={language}",
