@@ -51,5 +51,5 @@ async def start_handler(message: types.Message, command: CommandObject) -> None:
 
 
 @router.message(Command("lang"))
-async def lang_handler(message: types.Message) -> None:
+async def lang_command(message: types.Message) -> None:
     await message.answer(message="ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await lang_handler())
