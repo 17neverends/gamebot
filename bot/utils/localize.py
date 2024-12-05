@@ -75,3 +75,10 @@ value_error_text = {
     "gb": f"Select a value between 1 and {len(games_dict)} or enter the name",
     "in": f"1 से {len(games_dict)} के बीच का वैल्यू चुनें या नाम दर्ज करें"
 }
+
+
+back_event = {
+    "ru": "Назад",
+    "gb": "Back",
+    "in": "बैक"
+}

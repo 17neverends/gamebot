@@ -12,8 +12,8 @@ coincidence_dict = {
     "match": ["3 в ряд", "3вряд", "match", "match3inrow", "match3inarow", "match 3 in row"],
     "sudoku": ["судоку", "судока", "судок", "sudoku"],
     "tiktaktoe": ["крестики", "крестики-нолики", "крестикинолики", "нолики", "крестики нолики", "tictactoe", "tic-tac-toe"],
-    "minisweeper": ["сапёр", "сапер", "minisweeper"],
+    "minisweeper": ["сапёр", "сапер", "minisweeper", "бомбы", "бомбочки", "флажки"],
     "tetris": ["тетрис", "tetris"],
     "spotting": ["spotting", "fifteen", "spotting game", "spotting_game", "spotting_game", "пятнашки"],
-    "wordle": ["wordle", "вордли"]
+    "wordle": ["wordle", "вордли", "вордл", "слова", "словач"]
 }
