@@ -60,12 +60,12 @@ function handleMove(index) {
     renderBoard();
 
     if (checkWin(currentPlayer)) {
-        endGame(`${currentPlayer} ${won_text.lang}`);
+        endGame(`${currentPlayer} ${won_text[lang]}`);
         return;
     }
 
     if (board.every(cell => cell)) {
-        endGame(draw_text.lang);
+        endGame(draw_text[lang]);
         return;
     }
 
@@ -80,11 +80,11 @@ function botMove() {
         board[winningMove] = 'O';
         renderBoard();
         if (checkWin('O')) {
-            endGame(enemy_win.lang);
+            endGame(enemy_win[lang]);
             return;
         }
         if (board.every(cell => cell)) {
-            endGame(draw_text.lang);
+            endGame(draw_text[lang]);
             return;
         }
         currentPlayer = 'X';
@@ -96,7 +96,7 @@ function botMove() {
         board[blockingMove] = 'O';
         renderBoard();
         if (board.every(cell => cell)) {
-            endGame(draw_text.lang);
+            endGame(draw_text[lang]);
             return;
         }
         currentPlayer = 'X';
@@ -173,9 +173,9 @@ async function save_result(status) {
     const result_time = (Date.now() - startTime) / 1000;
     if (status === 'Ничья!') {
         status = "draw";
-    } else if (status === `${currentPlayer} ${won_text.lang}`) {
+    } else if (status === `${currentPlayer} ${won_text[lang]}`) {
         status = "win";
-    } else if (status === `${currentPlayer} ${won_text.lang}`) {
+    } else if (status === `${currentPlayer} ${won_text[lang]}`) {
         status = "lose";
     }
 
@@ -260,7 +260,7 @@ function findBestMove(player) {
 
 
 function renderLeaderboard(data) {
-    document.getElementById('player-name').textContent = `${welcome_text.lang}${data.name}!`;
+    document.getElementById('player-name').textContent = `${welcome_text[lang]}${data.name}!`;
   
     const leaderboardElement = document.getElementById('leaderboard');
     leaderboardElement.innerHTML = '';
@@ -296,7 +296,7 @@ function renderLeaderboard(data) {
     if (data.leaderboard.length === 0) {
         const leaderRow = document.createElement('div');
         leaderRow.classList.add('leader-row');
-        leaderRow.innerHTML = `<span class="leader-name">${empty_leaderboard_text.lang}</span>`;
+        leaderRow.innerHTML = `<span class="leader-name">${empty_leaderboard_text[lang]}</span>`;
         leaderboardElement.appendChild(leaderRow);
     }
   
