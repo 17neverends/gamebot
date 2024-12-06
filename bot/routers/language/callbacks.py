@@ -1,4 +1,4 @@
-from aiogram import Router, types, Bot
+from aiogram import Router, types
 from bot.routers.language.factory import LanguageCallbackFactory
 from bot.routers.greeting.message import send_greeting
 from tasks_shared.models.user.repository import UserRepository

@@ -5,7 +5,8 @@ games_dict = {
     "4": "minisweeper",
     "5": "tetris",
     "6": "spotting",
-    "7": "wordle"
+    "7": "wordle",
+    "8": "king",
 }
 
 coincidence_dict = {
@@ -15,5 +16,6 @@ coincidence_dict = {
     "minisweeper": ["сапёр", "сапер", "minisweeper", "бомбы", "бомбочки", "флажки"],
     "tetris": ["тетрис", "tetris"],
     "spotting": ["spotting", "fifteen", "spotting game", "spotting_game", "spotting_game", "пятнашки"],
-    "wordle": ["wordle", "вордли", "вордл", "слова", "словач"]
+    "wordle": ["wordle", "вордли", "вордл", "слова", "словач"],
+    "king": ["king", "king game", "kingkong", "king kong", "король", "кингконг", "кинг конг"]
 }
