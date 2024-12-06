@@ -23,9 +23,9 @@
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
-            <h2>Результат игры</h2>
+            <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
-            <button id="newGameButton">Новая игра</button>
+            <button id="newGameButton"></button>
         </div>
     </div>
 
@@ -36,10 +36,12 @@
             <h2>Добро пожаловать, <span id="player-name"></span>!</h2>
             <div class="leaderboard" id="leaderboard">
             </div>
-            <button id="start-game-button">Начать игру</button>
+            <button id="start-game-button"></button>
         </div>
     </div>
 
     <script src="/games/tiktaktoe/main.js?v=7"></script>
+    <script src="/games/common/lang.js?v=1"></script>
+    <script src="/games/common/localize.js?v=1"></script>
 </body>
 </html>
