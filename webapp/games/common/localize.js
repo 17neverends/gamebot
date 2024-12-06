@@ -79,3 +79,15 @@ export const result_title_text = {
     "gb": "Result game",
     "in": "परिणाम खेल"
 }
+
+export const seconds_text = {
+    "ru": "секунд",
+    "gb": "seconds",
+    "in": "सेकेंड"
+}
+
+export const welcome_text = {
+    "ru": "Добро пожаловать в PlayInChat🎮, ",
+    "gb": "Welcome to PlayInChat🎮, ",
+    "in": "PlayInChat में स्वागत है🎮, "
+}
