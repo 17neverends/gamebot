@@ -1,5 +1,5 @@
-import { lang } from "./lang.js";
-import { empty_leaderboard_text, enemy_win, draw_text, won_text, game_name_text, seconds_text,  welcome_text } from "./localize.js";
+import { lang } from "/common/lang.js";
+import { empty_leaderboard_text, enemy_win, draw_text, won_text, game_name_text, seconds_text,  welcome_text } from "/common/localize.js";
 const gameName = "tiktaktoe";
 document.title = game_name_text[gameName][lang];
 
