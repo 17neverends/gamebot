@@ -81,9 +81,9 @@ export const result_title_text = {
 }
 
 export const seconds_text = {
-    "ru": "секунд",
-    "gb": "seconds",
-    "in": "सेकेंड"
+    "ru": "сек.",
+    "gb": "sec.",
+    "in": "सेकंड."
 }
 
 export const welcome_text = {
