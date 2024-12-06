@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     bot_name: str = Field(..., env="BOT_NAME")
 
     domain: str = Field(..., env="DOMAIN")
-
+    bot_static_path: str = Field(default="bot/static/", env="BOT_STATIC_PATH")
     db_host: str = Field(..., env="DB_HOST")
     db_port: int = Field(..., env="DB_PORT")
     db_user: str = Field(..., env="DB_USER")
