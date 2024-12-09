@@ -263,12 +263,6 @@ function updateFlagCount() {
 }
 
 
-
-function startTimer() {
-  startTime = new Date();
-  timerInterval = setInterval(updateTimer, 1000);
-}
-
 function updateTimer() {
   const currentTime = new Date();
   const timeDiff = (currentTime - startTime) / 1000;
