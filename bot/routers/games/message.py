@@ -17,6 +17,7 @@ async def send_choose_game(message: types.Message,
         await message.answer_photo(caption=games_description.get(game).get(language),
                                    reply_markup=await game_handler(game=game, language=language),
                                    photo=game_image)
-    except FileNotFoundError:
+    except Exception as e:
+        print(e)
         await message.answer(text=games_description.get(game).get(language),
                                   reply_markup=await game_handler(game=game, language=language))

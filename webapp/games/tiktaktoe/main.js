@@ -1,3 +1,11 @@
+import { lang } from "/games/common/lang.js";
+import { empty_leaderboard_text, enemy_win, draw_text, won_text, game_name_text, seconds_text,  welcome_text } from "/games/common/localize.js";
+const gameName = "tiktaktoe";
+document.title = game_name_text[gameName][lang];
+import { renderLeaderboard } from "/games/common/leaderboard.js";
+
+
+
 const boardElement = document.getElementById('board');
 const modal = document.getElementById('modal');
 const modalMessage = document.getElementById('resultMessage');
@@ -53,12 +61,12 @@ function handleMove(index) {
     renderBoard();
 
     if (checkWin(currentPlayer)) {
-        endGame(`${currentPlayer} победил!`);
+        endGame(`${currentPlayer} ${won_text[lang]}`);
         return;
     }
 
     if (board.every(cell => cell)) {
-        endGame('Ничья!');
+        endGame(draw_text[lang]);
         return;
     }
 
@@ -73,11 +81,11 @@ function botMove() {
         board[winningMove] = 'O';
         renderBoard();
         if (checkWin('O')) {
-            endGame('O победил!');
+            endGame(enemy_win[lang]);
             return;
         }
         if (board.every(cell => cell)) {
-            endGame('Ничья!');
+            endGame(draw_text[lang]);
             return;
         }
         currentPlayer = 'X';
@@ -89,7 +97,7 @@ function botMove() {
         board[blockingMove] = 'O';
         renderBoard();
         if (board.every(cell => cell)) {
-            endGame('Ничья!');
+            endGame(draw_text[lang]);
             return;
         }
         currentPlayer = 'X';
@@ -166,9 +174,9 @@ async function save_result(status) {
     const result_time = (Date.now() - startTime) / 1000;
     if (status === 'Ничья!') {
         status = "draw";
-    } else if (status === `${currentPlayer} победил!`) {
+    } else if (status === `${currentPlayer} ${won_text[lang]}`) {
         status = "win";
-    } else if (status === `${currentPlayer} победил!`) {
+    } else if (status === `${currentPlayer} ${won_text[lang]}`) {
         status = "lose";
     }
 
@@ -250,48 +258,3 @@ function findBestMove(player) {
 
     return null;
 }
-
-
-function renderLeaderboard(data) {
-    document.getElementById('player-name').textContent = data.name;
-  
-    const leaderboardElement = document.getElementById('leaderboard');
-    leaderboardElement.innerHTML = '';
-  
-    data.leaderboard.sort((a, b) => a.result_time - b.result_time);
-  
-    data.leaderboard.forEach((leader, index) => {
-        const leaderRow = document.createElement('div');
-        leaderRow.classList.add('leader-row');
-  
-        let icon;
-        const position = index + 1;
-  
-        if (position === 1) {
-            icon = '<img src="static/first.png" class="leader-icon">';
-        } else if (position === 2) {
-            icon = '<img src="static/second.png" class="leader-icon">';
-        } else if (position === 3) {
-            icon = '<img src="static/third.png" class="leader-icon">';
-        } else {
-            icon = `<span class="leader-number">${position}</span>`;
-        }
-  
-        leaderRow.innerHTML = `
-        ${icon}
-        <span class="leader-name">
-            ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.result_time} сек.${leader.tg_id === data.tg_id ? '</strong>' : ''}
-        </span>
-        `;
-  
-        leaderboardElement.appendChild(leaderRow);
-    });
-    if (data.leaderboard.length === 0) {
-        const leaderRow = document.createElement('div');
-        leaderRow.classList.add('leader-row');
-        leaderRow.innerHTML = '<span class="leader-name">Таблица лидеров пуста</span>';
-        leaderboardElement.appendChild(leaderRow);
-    }
-  
-    document.getElementById('popup').style.display = 'block';
-  }
