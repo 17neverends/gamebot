@@ -263,20 +263,6 @@ function updateFlagCount() {
 }
 
 
-function updateTimer() {
-  const currentTime = new Date();
-  const timeDiff = (currentTime - startTime) / 1000;
-  const minutes = Math.floor(timeDiff / 60);
-  const seconds = Math.floor(timeDiff % 60);
-  document.getElementById('timer').innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-}
-
-function resetTimer() {
-  clearInterval(timerInterval);
-  document.getElementById('timer').innerText = '00:00';
-}
-
-
 async function get_data() {
   const response = await fetch(`/minisweeper/leaderboard/${currentLevel}`, {
     method: 'GET',
