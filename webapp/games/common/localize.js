@@ -91,3 +91,11 @@ export const welcome_text = {
     "gb": "Welcome to PlayInChat🎮, ",
     "in": "PlayInChat में स्वागत है🎮, "
 }
+
+export function getWinMessage(time_count, count_changes) { 
+    return {
+        "ru": `Вы победили! Время: ${(new Date() - time_count) / 1000} секунд, количество ходов: ${count_changes}`,
+        "gb": `You won! Time: ${(new Date() - time_count) / 1000} seconds, number of moves: ${count_changes}`,
+        "in": `आप जीते हैं! समय: ${(new Date() - time_count) / 1000} सेकंड, संख्या चलाव: ${count_changes}`
+    }
+}

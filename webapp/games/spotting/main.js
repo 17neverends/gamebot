@@ -1,3 +1,12 @@
+import { lang } from "/games/common/lang.js";
+import { empty_leaderboard_text, enemy_win, draw_text, won_text, game_name_text, seconds_text,  welcome_text } from "/games/common/localize.js";
+import { renderLeaderboard } from "/games/common/leaderboard.js";
+import { getWinMessage } from "../common/localize";
+const gameName = "spotting";
+document.title = game_name_text[gameName][lang];
+
+
+
 let timerInterval;
 let startTime;
 let name;
@@ -203,7 +212,8 @@ update_cell_values();
 function showModal() {
     const modal = document.getElementById('modal');
     const resultMessage = document.getElementById('resultMessage');
-    resultMessage.innerText = `Вы победили! Время: ${(new Date() - time_count) / 1000} секунд, количество ходов: ${count_changes}`;
+    let winMessage = getWinMessage();
+    resultMessage.innerText = winMessage[lang];
     modal.style.display = "block";
 }
 
@@ -236,47 +246,4 @@ document.getElementById('start-game-button').onclick = function() {
     startTimer();
 };
 
-function renderLeaderboard(data) {
-    document.getElementById('player-name').textContent = data.name;
-  
-    const leaderboardElement = document.getElementById('leaderboard');
-    leaderboardElement.innerHTML = '';
-  
-    data.leaderboard.sort((a, b) => a.result_time - b.result_time);
-  
-    data.leaderboard.forEach((leader, index) => {
-        const leaderRow = document.createElement('div');
-        leaderRow.classList.add('leader-row');
-  
-        let icon;
-        const position = index + 1;
-  
-        if (position === 1) {
-            icon = '<img src="static/first.png" class="leader-icon">';
-        } else if (position === 2) {
-            icon = '<img src="static/second.png" class="leader-icon">';
-        } else if (position === 3) {
-            icon = '<img src="static/third.png" class="leader-icon">';
-        } else {
-            icon = `<span class="leader-number">${position}</span>`;
-        }
-  
-        leaderRow.innerHTML = `
-        ${icon}
-        <span class="leader-name">
-            ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.result_time} сек.${leader.tg_id === data.tg_id ? '</strong>' : ''}
-        </span>
-        `;
-  
-        leaderboardElement.appendChild(leaderRow);
-    });
-    if (data.leaderboard.length === 0) {
-        const leaderRow = document.createElement('div');
-        leaderRow.classList.add('leader-row');
-        leaderRow.innerHTML = '<span class="leader-name">Таблица лидеров пуста</span>';
-        leaderboardElement.appendChild(leaderRow);
-    }
-  
-    document.getElementById('popup').style.display = 'block';
-  }
 
