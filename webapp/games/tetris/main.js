@@ -1,3 +1,9 @@
+import { lang } from "/games/common/lang.js";
+import { getWinMessageTetris, game_name_text, difficulty_ranking_text,  welcome_text, points_text, empty_leaderboard_text } from "/games/common/localize.js";
+const gameName = "tetris";
+document.title = game_name_text[gameName][lang];
+
+
 var ROWS = 20;
 var COLS = 10;
 var SIZE = 32;
@@ -399,10 +405,11 @@ function rotatePiece() {
 let difficultyIndex = 0;
 
 const difficulties = [
-  { name: "Легкая", speed: 500 },
-  { name: "Средняя", speed: 300 },
-  { name: "Сложная", speed: 150 },
+  { name: difficulty_ranking_text["easy"][lang], speed: 500 },
+  { name: difficulty_ranking_text["medium"][lang], speed: 300 },
+  { name: difficulty_ranking_text["hard"][lang], speed: 150 },
 ];
+
 
 function toggleDifficulty() {
   difficultyIndex = (difficultyIndex + 1) % difficulties.length;
@@ -504,7 +511,7 @@ window.onload = async function () {
 
 
 function renderLeaderboard(data) {
-  document.getElementById('player-name').textContent = data.name;
+  document.getElementById('player-name').textContent = `${welcome_text[lang]}${data.name}!`;
 
   const leaderboardElement = document.getElementById('leaderboard');
   leaderboardElement.innerHTML = '';
@@ -529,7 +536,7 @@ function renderLeaderboard(data) {
       leaderRow.innerHTML = `
       ${icon}
       <span class="leader-name">
-          ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.score} очков.${leader.tg_id === data.tg_id ? '</strong>' : ''}
+          ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.score} ${points_text[lang]}.${leader.tg_id === data.tg_id ? '</strong>' : ''}
       </span>
       `;
 
@@ -538,7 +545,7 @@ function renderLeaderboard(data) {
   if (data.leaderboard.length === 0) {
       const leaderRow = document.createElement('div');
       leaderRow.classList.add('leader-row');
-      leaderRow.innerHTML = '<span class="leader-name">Таблица лидеров пуста</span>';
+      leaderRow.innerHTML = `<span class="leader-name">${empty_leaderboard_text[lang]}</span>`;
       leaderboardElement.appendChild(leaderRow);
   }
 
@@ -570,6 +577,13 @@ startGameButton.onclick = function() {
 function showModal() {
   const modal = document.getElementById("modal");
   const resultMessage = document.getElementById("resultMessage");
-  resultMessage.innerText = `Игра окончена! Ваш результат: ${currentLines}`;
+  let winMessage = getWinMessageTetris(currentLines);
+  resultMessage.innerText = winMessage[lang];
   modal.style.display = "block";
 }
+
+window.toggleGame = toggleGame;
+window.toggleDifficulty = toggleDifficulty;
+window.moveLeft = moveLeft;
+window.rotatePiece = rotatePiece;
+window.moveRight = moveRight;

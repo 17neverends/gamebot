@@ -1,5 +1,5 @@
 export const game_name_text = {
-    "tetis": {
+    "tetris": {
         "ru": "Тетрис",
         "gb": "Tetris",
         "in": "टेट्रिस"
@@ -92,10 +92,64 @@ export const welcome_text = {
     "in": "PlayInChat में स्वागत है🎮, "
 }
 
+export const difficulty_text = {
+    "ru": "Сложность",
+    "gb": "Difficulty",
+    "in": "विशेषता"
+}
+
+export const flags_text = {
+    "ru": "Флажков",
+    "gb": "Flags",
+    "in": "चिह्न"
+}
+
+export const difficulty_ranking_text = {
+    "easy": {
+        "ru": "Легкая",
+        "gb": "Easy",
+        "in": "साधारण"
+    },
+    "medium": {
+        "ru": "Средняя",
+        "gb": "Medium",
+        "in": "मध्य"
+    },
+    "hard": {
+        "ru": "Сложная",
+        "gb": "Hard",
+        "in": "बड़ा"
+    }
+}
+
+export const points_text = {
+    "ru": "очков",
+    "gb": "points",
+    "in": "पॉइंट्स"
+}
+
 export function getWinMessage(time_count, count_changes) { 
     return {
         "ru": `Вы победили! Время: ${(new Date() - time_count) / 1000} секунд, количество ходов: ${count_changes}`,
         "gb": `You won! Time: ${(new Date() - time_count) / 1000} seconds, number of moves: ${count_changes}`,
         "in": `आप जीते हैं! समय: ${(new Date() - time_count) / 1000} सेकंड, संख्या चलाव: ${count_changes}`
+    }
+}
+
+
+export function getWinMessageSudoku(time_count) { 
+    return {
+        "ru": `Вы победили! Время: ${(new Date() - time_count) / 1000} секунд`,
+        "gb": `You won! Time: ${(new Date() - time_count) / 1000} seconds`,
+        "in": `आप जीते हैं! समय: ${(new Date() - time_count) / 1000} सेकंड`
+    }
+}
+
+
+export function getWinMessageTetris(currentLines) {
+    return {
+        "ru": `Игра окончена! Ваш результат: ${currentLines}`,
+        "gb": `Game over! Your result: ${currentLines}`,
+        "in": `खेल अंतिम हो गया है! आपका परिणाम: ${currentLines}`
     }
 }
