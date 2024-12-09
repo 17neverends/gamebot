@@ -1,3 +1,6 @@
+import { welcome_text } from "/games/common/localize.js";
+
+
 export function renderLeaderboard(data) {
     document.getElementById('player-name').textContent = `${welcome_text[lang]}${data.name}!`;
   
