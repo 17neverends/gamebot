@@ -1,7 +1,6 @@
 import { lang } from "/games/common/lang.js";
-import { empty_leaderboard_text, enemy_win, draw_text, won_text, game_name_text, seconds_text,  welcome_text } from "/games/common/localize.js";
+import { getWinMessage, empty_leaderboard_text, enemy_win, draw_text, won_text, game_name_text, seconds_text,  welcome_text } from "/games/common/localize.js";
 import { renderLeaderboard } from "/games/common/leaderboard.js";
-import { getWinMessage } from "../common/localize";
 const gameName = "spotting";
 document.title = game_name_text[gameName][lang];
 
