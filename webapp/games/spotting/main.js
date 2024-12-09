@@ -150,6 +150,8 @@ export function swap(ID) {
     }
 }
 
+window.swap = swap;
+
 function arrows_pressed(key) {
     let index_16 = values_cell_from_start_to_last.indexOf(16);
     let i_16 = Math.floor(index_16 / count_rows);
