@@ -1,4 +1,5 @@
 import { welcome_text } from "/games/common/localize.js";
+import { lang } from "/games/common/lang.js";
 
 
 export function renderLeaderboard(data) {
