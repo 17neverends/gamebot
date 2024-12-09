@@ -1,4 +1,4 @@
-import { welcome_text } from "/games/common/localize.js";
+import { welcome_text, seconds_text } from "/games/common/localize.js";
 import { lang } from "/games/common/lang.js";
 
 
