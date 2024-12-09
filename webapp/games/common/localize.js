@@ -111,3 +111,12 @@ export function getWinMessage(time_count, count_changes) {
         "in": `आप जीते हैं! समय: ${(new Date() - time_count) / 1000} सेकंड, संख्या चलाव: ${count_changes}`
     }
 }
+
+
+export function getWinMessageSudoku(time_count) { 
+    return {
+        "ru": `Вы победили! Время: ${(new Date() - time_count) / 1000} секунд`,
+        "gb": `You won! Time: ${(new Date() - time_count) / 1000} seconds`,
+        "in": `आप जीते हैं! समय: ${(new Date() - time_count) / 1000} सेकंड`
+    }
+}

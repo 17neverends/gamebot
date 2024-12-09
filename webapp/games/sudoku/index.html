@@ -21,7 +21,7 @@
 
     <div class="core">
         <div class="difficulty">
-            <h3 id="difficulty-level">Сложность: Легкая</h3>
+            <h3 id="difficulty-level"></h3>
         </div>
     <div class="container"></div>
     <div class="buttons">
@@ -40,9 +40,9 @@
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
-            <h2>Поздравляем!</h2>
+            <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
-            <button id="newGameButton">Новая игра</button>
+            <button id="newGameButton"></button>
         </div>
     </div>
     <div class="restart-button">
@@ -54,12 +54,15 @@
     </div>
     <div id="popup" class="modal" style="display:none;">
         <div class="modal-content">
-            <h2>Добро пожаловать, <span id="player-name"></span>!</h2>
+            <h2> id="player-name"></h2>
             <div class="leaderboard" id="leaderboard">
             </div>
-            <button id="start-game-button">Начать игру</button>
+            <button id="start-game-button"></button>
         </div>
     </div>
-    <script src="/games/sudoku/main.js?v=1714"></script>
+    <script type="module" src="/games/sudoku/main.js?v=1715"></script>
+    <script type="module" src="/games/common/lang.js?v=5"></script>
+    <script type="module" src="/games/common/localize.js?v=6"></script>
+    <script type="module" src="/games/common/leaderboard.js?v=3"></script>
 </body>
 </html>
