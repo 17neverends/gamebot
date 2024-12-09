@@ -213,7 +213,7 @@ update_cell_values();
 function showModal() {
     const modal = document.getElementById('modal');
     const resultMessage = document.getElementById('resultMessage');
-    let winMessage = getWinMessage();
+    let winMessage = getWinMessage(time_count, count_changes);
     resultMessage.innerText = winMessage[lang];
     modal.style.display = "block";
 }
