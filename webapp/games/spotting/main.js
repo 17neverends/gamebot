@@ -126,7 +126,7 @@ function update_cell_values() {
     }
 }
 
-function swap(ID) {
+export function swap(ID) {
     let current = ID - 1;
     let cells_which_can_change = [
         current - 1,
