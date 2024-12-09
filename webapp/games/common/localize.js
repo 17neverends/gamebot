@@ -1,5 +1,5 @@
 export const game_name_text = {
-    "tetis": {
+    "tetris": {
         "ru": "Тетрис",
         "gb": "Tetris",
         "in": "टेट्रिस"
