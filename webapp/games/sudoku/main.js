@@ -178,7 +178,7 @@ function getRandomBoard(currentLevel) {
   return levelBoards[randomIndex].initial;
 }
 
-random = getRandomBoard(currentLevel);
+let random = getRandomBoard(currentLevel);
 
 var sudoku = JSON.parse(JSON.stringify(random));
 
