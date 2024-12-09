@@ -25,7 +25,7 @@
         <div class="difficulty">
             <h3 id="difficulty-level"></h3>
         </div>
-        <p id="flag-count">Флажков: 0</p>
+        <p id="flag-count"></p>
         <div class="container"></div>
         <div class="action-buttons">
             <button id="open-btn" class="emoji-button">🔓</button>
@@ -34,21 +34,24 @@
     </div>
     <div id="popup" class="modal" style="display:none;">
         <div class="modal-content">
-            <h2>Добро пожаловать, <span id="player-name"></span>!</h2>
+            <h2 id="player-name"></h2>
             <div class="leaderboard" id="leaderboard">
             </div>
-            <button id="start-game-button">Начать игру</button>
+            <button id="start-game-button"></button>
         </div>
     </div>
 
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
-            <h2>Игра завершена!</h2>
+            <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
-            <button id="newGameButton">Новая игра</button>
+            <button id="newGameButton"></button>
         </div>
     </div>
-    <script src="/games/minisweeper/main.js?v=9"></script>
+    <script type="module" src="/games/minisweeper/main.js?v=9"></script>
+    <script type="module" src="/games/common/lang.js?v=4"></script>
+    <script type="module" src="/games/common/localize.js?v=5"></script>
+    <script type="module" src="/games/common/leaderboard.js?v=2"></script>
 </body>
 </html>

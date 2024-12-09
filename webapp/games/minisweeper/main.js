@@ -1,3 +1,10 @@
+import { lang } from "/games/common/lang.js";
+import { difficulty_text, flags_text, game_name_text } from "/games/common/localize.js";
+import { renderLeaderboard } from "/games/common/leaderboard.js";
+const gameName = "minisweeper";
+document.title = game_name_text[gameName][lang];
+
+
 let selectedAction = null;
 let name;
 let tg_id;
@@ -36,7 +43,7 @@ function changeLevel() {
   const levelKeys = Object.keys(levels);
   const currentIndex = levelKeys.indexOf(currentLevel);
   currentLevel = levelKeys[(currentIndex + 1) % levelKeys.length];
-  document.getElementById('difficulty-level').innerText = `Сложность: ${currentLevel}`;
+  document.getElementById('difficulty-level').innerText = `${difficulty[lang]}: ${currentLevel}`;
   resetGame();
 }
 
@@ -246,12 +253,13 @@ window.onload = async function () {
   await save_init_result();
   let data = await get_data();
   renderLeaderboard(data);  
-  document.getElementById('difficulty-level').innerText = `Сложность: ${currentLevel}`;
+  document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevel}`;
 };
 
+document.getElementById("flag-count").innerText = `${flags_text[lang]}: 0`;
 
 function updateFlagCount() {
-  document.getElementById("flag-count").innerText = `Флажков: ${flaggedCount}`;
+  document.getElementById("flag-count").innerText = `${flags_text[lang]}: ${flaggedCount}`;
 }
 
 
@@ -274,51 +282,6 @@ function resetTimer() {
   document.getElementById('timer').innerText = '00:00';
 }
 
-
-
-function renderLeaderboard(data) {
-  document.getElementById('player-name').textContent = data.name;
-
-  const leaderboardElement = document.getElementById('leaderboard');
-  leaderboardElement.innerHTML = '';
-
-  data.leaderboard.sort((a, b) => a.result_time - b.result_time);
-
-  data.leaderboard.forEach((leader, index) => {
-      const leaderRow = document.createElement('div');
-      leaderRow.classList.add('leader-row');
-
-      let icon;
-      const position = index + 1;
-
-      if (position === 1) {
-          icon = '<img src="static/first.png" class="leader-icon">';
-      } else if (position === 2) {
-          icon = '<img src="static/second.png" class="leader-icon">';
-      } else if (position === 3) {
-          icon = '<img src="static/third.png" class="leader-icon">';
-      } else {
-          icon = `<span class="leader-number">${position}</span>`;
-      }
-
-      leaderRow.innerHTML = `
-      ${icon}
-      <span class="leader-name">
-          ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.result_time} сек.${leader.tg_id === data.tg_id ? '</strong>' : ''}
-      </span>
-      `;
-
-      leaderboardElement.appendChild(leaderRow);
-  });
-  if (data.leaderboard.length === 0) {
-    const leaderRow = document.createElement('div');
-    leaderRow.classList.add('leader-row');
-    leaderRow.innerHTML = '<span class="leader-name">Таблица лидеров пуста</span>';
-    leaderboardElement.appendChild(leaderRow);
-}
-
-  document.getElementById('popup').style.display = 'block';
-}
 
 async function get_data() {
   const response = await fetch(`/minisweeper/leaderboard/${currentLevel}`, {

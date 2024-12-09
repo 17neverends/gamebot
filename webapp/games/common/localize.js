@@ -92,6 +92,18 @@ export const welcome_text = {
     "in": "PlayInChat में स्वागत है🎮, "
 }
 
+export const difficulty_text = {
+    "ru": "Сложность",
+    "gb": "Difficulty",
+    "in": "विशेषता"
+}
+
+export const flags_text = {
+    "ru": "Флажков",
+    "gb": "Flags",
+    "in": "चिह्न"
+}
+
 export function getWinMessage(time_count, count_changes) { 
     return {
         "ru": `Вы победили! Время: ${(new Date() - time_count) / 1000} секунд, количество ходов: ${count_changes}`,
