@@ -205,3 +205,33 @@ export const delete_text = {
     "gb": "Delete",
     "in": "डिलीट"
 }
+
+export const wordle_lost_status = {
+    "ru": "Вы проиграли! Правильное слово:",
+    "gb": "You lost! Correct word:",
+    "in": "आप लोस हो गया है! सही शब्द:"
+}
+
+export const wordle_win_status = {
+    "ru": "Поздравляем! Вы угадали слово!",
+    "gb": "Congratulations! You guessed the word!",
+    "in": "बधाई हो! आपको शब्द मिला!"
+}
+
+export const wordle_dict_error_text = {
+    "ru": "Слово не найдено в словаре!",
+    "gb": "Word not found in dictionary!",
+    "in": "शब्द डिक्शनारी में नहीं मिला!"
+}
+
+export const wordle_size_error_text = {
+    "ru": "Слово должно состоять из 5 букв",
+    "gb": "Word should be made up of 5 letters",
+    "in": "शब्द 5 अक्षरों का है।"
+}
+
+export const keyboard_text = {
+    "ru": "йцукенгшщзхъфывапролджэячсмитьбю",
+    "gb": "qwertyuiopasdfghjklzxcvbnm",
+    "in": "अआइईउऊऋएऐओऔअंअःकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह"
+}

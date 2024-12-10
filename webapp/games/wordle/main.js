@@ -87,14 +87,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleSubmitWord() {
     const currentWordArr = getCurrentWordArr();
     if (currentWordArr.length !== 5) {
-      window.alert("Слово должно состоять из 5 букв");
+      window.alert(`${wordle_size_error_text[lang]}`);
       return;
     }
 
     const currentWord = currentWordArr.join("");
 
     if (!dictionary.includes(currentWord)) {
-      window.alert("Слово не найдено в словаре!");
+      window.alert(`${wordle_dict_error_text[lang]}`);
       return;
     }
 
@@ -114,13 +114,13 @@ document.addEventListener("DOMContentLoaded", () => {
     guessedWordCount += 1;
 
     if (currentWord === word) {
-      showModal("Поздравляем! Вы угадали слово!", true);
+      showModal(`${wordle_win_status[lang]}`, true);
       save_result(true);
       return;
     }
 
     if (guessedWords.length === 6) {
-      showModal(`Вы проиграли! Правильное слово: ${word}`, false);
+      showModal(`${wordle_lost_status[lang]} ${word}`, false);
       save_result(false);
       return;
     }
@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 import { lang } from "/games/common/lang.js";
-import { empty_leaderboard_text, enemy_win, draw_text, won_text, game_name_text, seconds_text,  welcome_text } from "/games/common/localize.js";
+import { wordle_size_error_text, wordle_dict_error_text, wordle_win_status, wordle_lost_status, game_name_text } from "/games/common/localize.js";
 const gameName = "wordle";
 document.title = game_name_text[gameName][lang];
 import { renderLeaderboard } from "/games/common/leaderboard.js";
