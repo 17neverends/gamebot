@@ -141,11 +141,16 @@ function getInput(event){
           currentPiece.gridY++;
         }
       break;
+      case 32:
+        dropDown();
+      break;
     }
   } else {
     initGame();
   }
 }
+
+window.dropDown = dropDown;
 
 function onImagesLoaded(event){
   blockImage = imageLoader.getImageAtIndex(0);
@@ -220,6 +225,15 @@ function update(){
     }
   }
 }
+
+function dropDown() {
+  while (checkMove(currentPiece.gridX, currentPiece.gridY + 1, currentPiece.currentState)) {
+    currentPiece.gridY++;
+  }
+  copyData(currentPiece);
+  currentPiece = getRandomPiece();
+}
+
 
 function copyData(piece){
   var xPos = piece.gridX;
