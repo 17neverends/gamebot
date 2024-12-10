@@ -13,7 +13,7 @@ for (let i = 0; i < 3; i++) {
     if (i === 1) {
         const space = document.createElement("div");
         space.classList.add("spacer-half");
-        rowDiv.appendChild(button);
+        rowDiv.appendChild(space);
     }
 
     for (let j = 0; j < part; j++) {
@@ -46,7 +46,7 @@ for (let i = 0; i < 3; i++) {
     if (i === 1) {
         const space = document.createElement("div");
         space.classList.add("spacer-half");
-        rowDiv.appendChild(button);
+        rowDiv.appendChild(space);
     }
     container.appendChild(rowDiv);
 }   
