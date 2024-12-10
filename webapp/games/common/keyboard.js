@@ -1,4 +1,4 @@
-import { keyboard_text, enter_text, delete_text } from "./localize";
+import { keyboard_text, enter_text, delete_text } from "/games/common/localize.js";
 
 let container = document.getElementById("keyboard-container");
 const urlParams = new URLSearchParams(window.location.search);
