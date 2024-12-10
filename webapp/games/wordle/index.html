@@ -32,7 +32,7 @@
     <div id="container">
       <div id="game">
         <header>
-          <h1 class="title">WORDLE</h1>
+          <h1 id="titlePage" class="title">WORDLE</h1>
         </header>
 
         <div id="board-container">
@@ -70,7 +70,7 @@
             <div class="spacer-half"></div>
           </div>
           <div class="keyboard-row">
-            <button data-key="enter" class="wide-button">Ввод</button>
+            <button data-key="enter" id="enter"class="wide-button"></button>
             <button data-key="я">я</button>
             <button data-key="ч">ч</button>
             <button data-key="с">с</button>
@@ -80,7 +80,7 @@
             <button data-key="ь">ь</button>
             <button data-key="б">б</button>
             <button data-key="ю">ю</button>
-            <button data-key="del" class="wide-button">Удалить</button>
+            <button data-key="del" id="del" class="wide-button"></button>
           </div>
         </div>
         
@@ -97,15 +97,15 @@
     <div id="rules" class="modal">
       <div class="modal-content">
           <span class="close" id="closeRuleModal">&times;</span>
-          <h2>Правила игры</h2>
+          <h2 id="rulesTitle"></h2>
           <div id="rules-text">
-            <p>1. Слово состоит из 5 букв.</p>
-            <p>2. Каждая буква может быть использована только один раз.</p>
-            <p>3. Правильные буквы выделены зеленым цветом</p>
-            <p>4. Буквы, входящие в слово, но не своей позиции, выделены желтым цветом</p>
-            <p>5. Если слово не угадано за 6 попыток, игра заканчивается.</p>
+            <p id="rules-1"></p>
+            <p id="rules-2"></p>
+            <p id="rules-3"></p>
+            <p id="rules-4"></p>
+            <p id="rules-5"></p>
           </div>
-          <button id="continueGame">Продолжить игру</button>
+          <button id="continueGame"></button>
       </div>
   </div>
   <div id="popup" class="modal" style="display:none;">
@@ -119,6 +119,6 @@
   <script type="module" src="/games/wordle/main.js?v=10"></script>
   <script type="module" src="/games/common/lang.js?v=1"></script>
   <script type="module" src="/games/common/localize.js?v=1"></script>
-
+  <script type="module" src="/games/common/rules.js?v=1"></script>
   </body>
 </html>
