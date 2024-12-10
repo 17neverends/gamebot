@@ -166,7 +166,7 @@ export const continue_text = {
     "in": "खेल जारी रखें"
 }
 
-export  const rules_points_text = {
+export const rules_points_text = {
     "1": {
         "ru": "Слово состоит из 5 букв.",
         "gb": "The word is made up of 5 letters.",

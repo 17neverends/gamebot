@@ -1,4 +1,4 @@
-import { enter_text, delete_text, rules_points_text, rules_points_text, continue_text, rules_text } from "./localize.js";
+import { enter_text, delete_text, rules_points_text, continue_text, rules_text } from "./localize.js";
 
 
 const urlParams = new URLSearchParams(window.location.search);
