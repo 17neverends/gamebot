@@ -16,5 +16,6 @@ rulesTitle.textContent = rules_text[lang];
 continueTitle.textContent = continue_text[lang];
 
 for (let i = 0; i < rules_points_text.length; i++) {
+    console.log(rules_points_text[`${i+1}`][lang]);
     document.getElementById(`rules-${i+1}`).innerHTML = rules_points_text[`${i+1}`][lang];
 }
