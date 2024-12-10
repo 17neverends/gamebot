@@ -27,12 +27,14 @@ for (let i = 0; i < 3; i++) {
         }
 
         if (i < 2 || j < part - 1) {
-            const button = document.createElement("button");
             const button_value = keyboard_text[lang][i * part + j];
-            button.dataset.key = button_value;
-            button.classList.add("keyboard-button");
-            button.textContent = button_value;
-            rowDiv.appendChild(button);
+            if (button_value) {
+                const button = document.createElement("button");
+                button.dataset.key = button_value;
+                button.classList.add("keyboard-button");
+                button.textContent = button_value;
+                rowDiv.appendChild(button);
+            }
         }
 
         if (i === 2 && j === part - 1) {
