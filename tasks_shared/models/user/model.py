@@ -9,7 +9,7 @@ class User(Base, TimestampMixin):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    tg_id: Mapped[BigInteger] = mapped_column(unique=True)
+    tg_id: Mapped[int] = mapped_column(BigInteger, unique=True)
     username: Mapped[str]
     comings_from: Mapped[str] = mapped_column(nullable=True)
     visits_count: Mapped[int] = mapped_column(default=0)
