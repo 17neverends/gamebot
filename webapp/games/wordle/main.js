@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   let word = dictionary[Math.floor(Math.random() * dictionary.length)].toUpperCase();
   let guessedWordCount = 0;
+  console.log(word);
+  
 
   const keys = document.querySelectorAll(".keyboard-row button");
 
