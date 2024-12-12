@@ -29,21 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let guessedWords = [[]];
   let availableSpace = 1;
-  const dictionary = [
-    "ПОРОХ",
-    "МОСТЫ",
-    "МАРИЯ",
-    "ГОРОД",
-    "ПОЛКА",
-    "АРБУЗ",
-    "САЛОН",
-    "КРАСА",
-    "СПРЕЙ",
-    "СЛИВА",
-    'СОВЕТ',
-    'БЛАГО',
-  ];
-
+  let dictionary;
+  if (lang == 'ru') {
+    dictionary = ru_words;
+  } else if (lang == 'gb') {
+    dictionary = en_words;
+  } else if (lang == 'in') {
+    dictionary = in_words;
+  }
   let word = dictionary[Math.floor(Math.random() * dictionary.length)].toUpperCase();
   let guessedWordCount = 0;
 
@@ -294,6 +287,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 import { lang } from "/games/common/lang.js";
+import { ru_words } from "/games/common/ru_words.js";
+import { en_words } from "/games/common/en_words.js";
+import { in_words } from "/games/common/in_words.js";
 import { wordle_size_error_text, wordle_dict_error_text, wordle_win_status, wordle_lost_status, game_name_text } from "/games/common/localize.js";
 const gameName = "wordle";
 document.title = game_name_text[gameName][lang];
