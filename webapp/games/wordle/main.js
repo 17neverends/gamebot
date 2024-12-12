@@ -87,8 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const currentWord = currentWordArr.join("");
+    console.log(currentWord);
 
-    if (!dictionary.includes(currentWord)) {
+
+    if (!dictionary.includes(currentWord.toLowerCase())) {
       window.alert(`${wordle_dict_error_text[lang]}`);
       return;
     }
