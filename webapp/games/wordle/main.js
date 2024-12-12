@@ -38,9 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dictionary = in_words;
   }
   let word = dictionary[Math.floor(Math.random() * dictionary.length)].toUpperCase();
-  let guessedWordCount = 0;
-  console.log(word);
-  
+  let guessedWordCount = 0;  
 
   const keys = document.querySelectorAll(".keyboard-row button");
 
@@ -87,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const currentWord = currentWordArr.join("");
-    console.log(currentWord);
 
 
     if (!dictionary.includes(currentWord.toLowerCase())) {
