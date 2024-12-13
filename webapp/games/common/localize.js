@@ -153,3 +153,98 @@ export function getWinMessageTetris(currentLines) {
         "in": `खेल अंतिम हो गया है! आपका परिणाम: ${currentLines}`
     }
 }
+
+export const rules_text = {
+    "ru": "Правила игры",
+    "gb": "Game rules",
+    "in": "खेल के नियम"
+}
+
+export const continue_text = {
+    "ru": "Продолжить игру",
+    "gb": "Continue game",
+    "in": "खेल जारी रखें"
+}
+
+export const rules_points_text = {
+    "1": {
+        "ru": "Слово состоит из 5 букв.",
+        "gb": "The word is made up of 5 letters.",
+        "in": "शब्द 5 अक्षरों का है।"
+    },
+    "2": {
+        "ru": "Каждая буква может быть использована только один раз.",
+        "gb": "Each letter can be used only once.",
+        "in": "अक्षर को पहले से पहला जा सकता है।"
+    },
+    "3": {
+        "ru": "Правильные буквы выделены зеленым цветом.",
+        "gb": "The correct letters are highlighted in green.",
+        "in": "सही अक्षरों को लाल रंग में लिखा जाता है।"
+    },
+    "4": {
+        "ru": "Буквы, входящие в слово, но не своей позиции, выделены желтым цветом.",
+        "gb": "Letters that are in the word but not in the correct position are highlighted in yellow.",
+        "in": "शब्द में होने वाले अक्षरों को लाल रंग में लिखा जाता है।"
+    },
+    "5": {
+        "ru": "Если слово не угадано за 6 попыток, игра заканчивается.",
+        "gb": "If the word is not guessed within 6 attempts, the game ends.",
+        "in": "6 प्रयास के बाद शब्द नहीं मिला, खेल समाप्त हो जाता है।"
+    }
+}
+
+export const enter_text = {
+    "ru": "Ввод",
+    "gb": "Enter",
+    "in": "एंटर"
+}
+
+export const delete_text = {
+    "ru": "Удалить",
+    "gb": "Delete",
+    "in": "डिलीट"
+}
+
+export const wordle_lost_status = {
+    "ru": "Вы проиграли! Правильное слово:",
+    "gb": "You lost! Correct word:",
+    "in": "आप लोस हो गया है! सही शब्द:"
+}
+
+export const wordle_win_status = {
+    "ru": "Поздравляем! Вы угадали слово!",
+    "gb": "Congratulations! You guessed the word!",
+    "in": "बधाई हो! आपको शब्द मिला!"
+}
+
+export const wordle_dict_error_text = {
+    "ru": "Слово не найдено в словаре!",
+    "gb": "Word not found in dictionary!",
+    "in": "शब्द डिक्शनारी में नहीं मिला!"
+}
+
+export const score_text_new = {
+    "ru": "Счет",
+    "gb": "Score",
+    "in": "स्कोर"
+}
+
+export const score_text = {
+    "ru": "Счет",
+    "gb": "Score",
+    "in": "स्कोर"
+}
+
+
+export const wordle_size_error_text = {
+    "ru": "Слово должно состоять из 5 букв",
+    "gb": "Word should be made up of 5 letters",
+    "in": "शब्द 5 अक्षरों का है।"
+}
+
+export const keyboard_text = {
+    "ru": "йцукенгшщзхъфывапролджэячсмитьбю",
+    "gb": "qwertyuiopasdfghjklzxcvbnm",
+    "in": "अआइईउऊऋएऐओऔअंअःकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसह"
+}

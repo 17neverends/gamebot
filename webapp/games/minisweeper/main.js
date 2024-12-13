@@ -34,9 +34,9 @@ let flaggedCount = 0;
 let mineLocations = [];
 
 const levels = {
-  "Легкая": { size: 8, mines: 1 },
-  "Средняя": { size: 8, mines: 5 },
-  "Сложная": { size: 8, mines: 7 },
+  "Легкая": { size: 8, mines: 5 },
+  "Средняя": { size: 8, mines: 10 },
+  "Сложная": { size: 8, mines: 15 },
 };
 
 function changeLevel() {

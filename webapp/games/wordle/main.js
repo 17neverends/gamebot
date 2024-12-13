@@ -29,23 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let guessedWords = [[]];
   let availableSpace = 1;
-  const dictionary = [
-    "ПОРОХ",
-    "МОСТЫ",
-    "МАРИЯ",
-    "ГОРОД",
-    "ПОЛКА",
-    "АРБУЗ",
-    "САЛОН",
-    "КРАСА",
-    "СПРЕЙ",
-    "СЛИВА",
-    'СОВЕТ',
-    'БЛАГО',
-  ];
-
+  let dictionary;
+  if (lang == 'ru') {
+    dictionary = ru_words;
+  } else if (lang == 'gb') {
+    dictionary = en_words;
+  } else if (lang == 'in') {
+    dictionary = in_words;
+  }
   let word = dictionary[Math.floor(Math.random() * dictionary.length)].toUpperCase();
-  let guessedWordCount = 0;
+  let guessedWordCount = 0;  
 
   const keys = document.querySelectorAll(".keyboard-row button");
 
@@ -87,14 +80,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleSubmitWord() {
     const currentWordArr = getCurrentWordArr();
     if (currentWordArr.length !== 5) {
-      window.alert("Слово должно состоять из 5 букв");
+      window.alert(`${wordle_size_error_text[lang]}`);
       return;
     }
 
     const currentWord = currentWordArr.join("");
 
-    if (!dictionary.includes(currentWord)) {
-      window.alert("Слово не найдено в словаре!");
+
+    if (!dictionary.includes(currentWord.toLowerCase())) {
+      window.alert(`${wordle_dict_error_text[lang]}`);
       return;
     }
 
@@ -114,13 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
     guessedWordCount += 1;
 
     if (currentWord === word) {
-      showModal("Поздравляем! Вы угадали слово!", true);
+      showModal(`${wordle_win_status[lang]}`, true);
       save_result(true);
       return;
     }
 
     if (guessedWords.length === 6) {
-      showModal(`Вы проиграли! Правильное слово: ${word}`, false);
+      showModal(`${wordle_lost_status[lang]} ${word}`, false);
       save_result(false);
       return;
     }
@@ -289,57 +283,15 @@ document.addEventListener("DOMContentLoaded", () => {
     renderLeaderboard(data); 
     createSquares();
   };
-
-
-  function renderLeaderboard(data) {
-    document.getElementById('player-name').textContent = data.name;
-  
-    const leaderboardElement = document.getElementById('leaderboard');
-    leaderboardElement.innerHTML = '';
-  
-    data.leaderboard.sort((a, b) => a.result_time - b.result_time);
-  
-    data.leaderboard.forEach((leader, index) => {
-        const leaderRow = document.createElement('div');
-        leaderRow.classList.add('leader-row');
-  
-        let icon;
-        const position = index + 1;
-  
-        if (position === 1) {
-            icon = '<img src="static/first.png" class="leader-icon">';
-        } else if (position === 2) {
-            icon = '<img src="static/second.png" class="leader-icon">';
-        } else if (position === 3) {
-            icon = '<img src="static/third.png" class="leader-icon">';
-        } else {
-            icon = `<span class="leader-number">${position}</span>`;
-        }
-  
-        leaderRow.innerHTML = `
-        ${icon}
-        <span class="leader-name">
-            ${leader.tg_id === data.tg_id ? '<strong>' : ''}${leader.name} - ${leader.result_time} сек.${leader.tg_id === data.tg_id ? '</strong>' : ''}
-        </span>
-        `;
-  
-        leaderboardElement.appendChild(leaderRow);
-    });
-    if (data.leaderboard.length === 0) {
-      const leaderRow = document.createElement('div');
-      leaderRow.classList.add('leader-row');
-      leaderRow.innerHTML = '<span class="leader-name">Таблица лидеров пуста</span>';
-      leaderboardElement.appendChild(leaderRow);
-    }
-  
-    document.getElementById('popup').style.display = 'block';
-  }
 });
 
 
 
 import { lang } from "/games/common/lang.js";
-import { empty_leaderboard_text, enemy_win, draw_text, won_text, game_name_text, seconds_text,  welcome_text } from "/games/common/localize.js";
+import { ru_words } from "/games/common/ru_words.js";
+import { en_words } from "/games/common/en_words.js";
+import { in_words } from "/games/common/in_words.js";
+import { wordle_size_error_text, wordle_dict_error_text, wordle_win_status, wordle_lost_status, game_name_text } from "/games/common/localize.js";
 const gameName = "wordle";
 document.title = game_name_text[gameName][lang];
-
+import { renderLeaderboard } from "/games/common/leaderboard.js";

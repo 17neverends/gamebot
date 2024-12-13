@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Вордли</title>
-    <link rel="stylesheet" href="/games/wordle/style.css?v=12" />
+    <link rel="stylesheet" href="/games/wordle/style.css?v=14" />
     <link rel="stylesheet" href="/games/common/styles.css?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
     <div id="container">
       <div id="game">
         <header>
-          <h1 class="title">WORDLE</h1>
+          <h1 id="titlePage" class="title">WORDLE</h1>
         </header>
 
         <div id="board-container">
@@ -40,48 +40,7 @@
         </div>
 
         <div id="keyboard-container">
-          <div class="keyboard-row">
-            <button data-key="й">й</button>
-            <button data-key="ц">ц</button>
-            <button data-key="у">у</button>
-            <button data-key="к">к</button>
-            <button data-key="е">е</button>
-            <button data-key="н">н</button>
-            <button data-key="г">г</button>
-            <button data-key="ш">ш</button>
-            <button data-key="щ">щ</button>
-            <button data-key="з">з</button>
-            <button data-key="х">х</button>
-            <button data-key="ъ">ъ</button>
-          </div>
-          <div class="keyboard-row">
-            <div class="spacer-half"></div>
-            <button data-key="ф">ф</button>
-            <button data-key="ы">ы</button>
-            <button data-key="в">в</button>
-            <button data-key="а">а</button>
-            <button data-key="п">п</button>
-            <button data-key="р">р</button>
-            <button data-key="о">о</button>
-            <button data-key="л">л</button>
-            <button data-key="д">д</button>
-            <button data-key="ж">ж</button>
-            <button data-key="э">э</button>
-            <div class="spacer-half"></div>
-          </div>
-          <div class="keyboard-row">
-            <button data-key="enter" class="wide-button">Ввод</button>
-            <button data-key="я">я</button>
-            <button data-key="ч">ч</button>
-            <button data-key="с">с</button>
-            <button data-key="м">м</button>
-            <button data-key="и">и</button>
-            <button data-key="т">т</button>
-            <button data-key="ь">ь</button>
-            <button data-key="б">б</button>
-            <button data-key="ю">ю</button>
-            <button data-key="del" class="wide-button">Удалить</button>
-          </div>
+
         </div>
         
       </div>
@@ -97,15 +56,15 @@
     <div id="rules" class="modal">
       <div class="modal-content">
           <span class="close" id="closeRuleModal">&times;</span>
-          <h2>Правила игры</h2>
+          <h2 id="rulesTitle"></h2>
           <div id="rules-text">
-            <p>1. Слово состоит из 5 букв.</p>
-            <p>2. Каждая буква может быть использована только один раз.</p>
-            <p>3. Правильные буквы выделены зеленым цветом</p>
-            <p>4. Буквы, входящие в слово, но не своей позиции, выделены желтым цветом</p>
-            <p>5. Если слово не угадано за 6 попыток, игра заканчивается.</p>
+            <p id="rules-1"></p>
+            <p id="rules-2"></p>
+            <p id="rules-3"></p>
+            <p id="rules-4"></p>
+            <p id="rules-5"></p>
           </div>
-          <button id="continueGame">Продолжить игру</button>
+          <button id="continueGame"></button>
       </div>
   </div>
   <div id="popup" class="modal" style="display:none;">
@@ -116,9 +75,13 @@
         <button id="start-game-button"></button>
     </div>
   </div>
-  <script type="module" src="/games/wordle/main.js?v=10"></script>
-  <script type="module" src="/games/common/lang.js?v=1"></script>
-  <script type="module" src="/games/common/localize.js?v=1"></script>
-
+  <script type="module" src="/games/wordle/main.js?v=16"></script>
+  <script type="module" src="/games/common/lang.js?v=3"></script>
+  <script type="module" src="/games/common/localize.js?v=4"></script>
+  <script type="module" src="/games/common/keyboard.js?v=5"></script>
+  <script type="module" src="/games/common/rules.js?v=9"></script>
+  <script type="module" src="/games/common/ru_words.js?v=1"></script>
+  <script type="module" src="/games/common/in_words.js?v=1"></script>
+  <script type="module" src="/games/common/en_words.js?v=1"></script>
   </body>
 </html>

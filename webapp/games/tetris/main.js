@@ -1,8 +1,11 @@
 import { lang } from "/games/common/lang.js";
-import { getWinMessageTetris, game_name_text, difficulty_ranking_text,  welcome_text, points_text, empty_leaderboard_text } from "/games/common/localize.js";
+import { getWinMessageTetris, game_name_text, difficulty_ranking_text, difficulty_text,  welcome_text, points_text, empty_leaderboard_text } from "/games/common/localize.js";
 const gameName = "tetris";
+import { score_text } from "/games/common/tetris_text.js";
 document.title = game_name_text[gameName][lang];
 
+document.getElementById('current-difficulty').textContent = `${difficulty_text[lang]}: ${difficulty_ranking_text["easy"][lang]}`;
+document.getElementById('scoreText').innerHTML = `${score_text[lang]}: <span id="lines"></span>`;
 
 var ROWS = 20;
 var COLS = 10;
@@ -141,11 +144,16 @@ function getInput(event){
           currentPiece.gridY++;
         }
       break;
+      case 32:
+        dropDown();
+      break;
     }
   } else {
     initGame();
   }
 }
+
+window.dropDown = dropDown;
 
 function onImagesLoaded(event){
   blockImage = imageLoader.getImageAtIndex(0);
@@ -220,6 +228,15 @@ function update(){
     }
   }
 }
+
+function dropDown() {
+  while (checkMove(currentPiece.gridX, currentPiece.gridY + 1, currentPiece.currentState)) {
+    currentPiece.gridY++;
+  }
+  copyData(currentPiece);
+  currentPiece = getRandomPiece();
+}
+
 
 function copyData(piece){
   var xPos = piece.gridX;
@@ -410,12 +427,15 @@ const difficulties = [
   { name: difficulty_ranking_text["hard"][lang], speed: 150 },
 ];
 
+let currentDifficulty;
+
 
 function toggleDifficulty() {
   difficultyIndex = (difficultyIndex + 1) % difficulties.length;
-  const currentDifficulty = difficulties[difficultyIndex];
+  currentDifficulty = difficulties[difficultyIndex];
 
-  document.getElementById("current-difficulty").textContent = currentDifficulty.name;
+  document.getElementById('current-difficulty').textContent = `${difficulty_text[lang]}: ${currentDifficulty.name}`;
+
   speed = currentDifficulty.speed;
 
   if (!paused) {
