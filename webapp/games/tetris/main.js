@@ -5,7 +5,7 @@ import { score_text } from "/games/common/tetris_text.js";
 document.title = game_name_text[gameName][lang];
 
 document.getElementById('current-difficulty').textContent = `${difficulty_text[lang]}: ${difficulty_ranking_text["easy"][lang]}`;
-document.getElementById('scoreText').textContent = `${score_text[lang]}: `;
+document.getElementById('scoreText').innerHTML = `${score_text[lang]}: <span id="lines"></span>`;
 
 var ROWS = 20;
 var COLS = 10;
