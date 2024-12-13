@@ -1,7 +1,9 @@
 import { lang } from "/games/common/lang.js";
-import { getWinMessageTetris, game_name_text, difficulty_ranking_text,  welcome_text, points_text, empty_leaderboard_text } from "/games/common/localize.js";
+import { getWinMessageTetris, game_name_text, difficulty_ranking_text, difficulty,  welcome_text, points_text, empty_leaderboard_text } from "/games/common/localize.js";
 const gameName = "tetris";
 document.title = game_name_text[gameName][lang];
+
+document.getElementById('current-difficulty').textContent = `${difficulty[lang]}: ${difficulty_ranking_text["easy"][lang]}`;
 
 
 var ROWS = 20;
@@ -424,12 +426,15 @@ const difficulties = [
   { name: difficulty_ranking_text["hard"][lang], speed: 150 },
 ];
 
+let currentDifficulty;
+
 
 function toggleDifficulty() {
   difficultyIndex = (difficultyIndex + 1) % difficulties.length;
-  const currentDifficulty = difficulties[difficultyIndex];
+  currentDifficulty = difficulties[difficultyIndex];
 
-  document.getElementById("current-difficulty").textContent = currentDifficulty.name;
+  document.getElementById('current-difficulty').textContent = `${difficulty[lang]}: ${currentDifficulty.name}`;
+
   speed = currentDifficulty.speed;
 
   if (!paused) {
