@@ -1,10 +1,10 @@
 import { lang } from "/games/common/lang.js";
-import { getWinMessageTetris, game_name_text, difficulty_ranking_text, difficulty_text,  welcome_text, points_text, empty_leaderboard_text } from "/games/common/localize.js";
+import { getWinMessageTetris, score_text, game_name_text, difficulty_ranking_text, difficulty_text,  welcome_text, points_text, empty_leaderboard_text } from "/games/common/localize.js";
 const gameName = "tetris";
 document.title = game_name_text[gameName][lang];
 
 document.getElementById('current-difficulty').textContent = `${difficulty_text[lang]}: ${difficulty_ranking_text["easy"][lang]}`;
-
+document.getElementById('scoreText').textContent = `${score_text[lang]}: `;
 
 var ROWS = 20;
 var COLS = 10;

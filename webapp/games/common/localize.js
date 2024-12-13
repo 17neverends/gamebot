@@ -224,6 +224,12 @@ export const wordle_dict_error_text = {
     "in": "शब्द डिक्शनारी में नहीं मिला!"
 }
 
+export const score_text = {
+    "ru": "Счет",
+    "gb": "Score",
+    "in": "स्कोर"
+}
+
 export const wordle_size_error_text = {
     "ru": "Слово должно состоять из 5 букв",
     "gb": "Word should be made up of 5 letters",
