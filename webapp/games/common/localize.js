@@ -224,7 +224,7 @@ export const wordle_dict_error_text = {
     "in": "शब्द डिक्शनारी में नहीं मिला!"
 }
 
-export const score_text = {
+export const score_text_new = {
     "ru": "Счет",
     "gb": "Score",
     "in": "स्कोर"
