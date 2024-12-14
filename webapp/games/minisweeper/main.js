@@ -40,12 +40,13 @@ const levels = {
   "Сложная": { size: 8, mines: 15 },
 };
 
-const currentLevelToDisplay = minesweeper_ranking_text[currentLevel][lang];
+let currentLevelToDisplay = minesweeper_ranking_text[currentLevel][lang];
 
 function changeLevel() {
   const levelKeys = Object.keys(levels);
   const currentIndex = levelKeys.indexOf(currentLevel);
   currentLevel = levelKeys[(currentIndex + 1) % levelKeys.length];
+  currentLevelToDisplay = minesweeper_ranking_text[currentLevel][lang];
   document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevelToDisplay}`;
   resetGame();
 }
