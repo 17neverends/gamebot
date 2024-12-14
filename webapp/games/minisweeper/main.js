@@ -1,5 +1,6 @@
 import { lang } from "/games/common/lang.js";
-import { difficulty_text, flags_text, game_name_text, minesweeper_ranking_text } from "/games/common/localize.js";
+import { difficulty_text, flags_text, game_name_text } from "/games/common/localize.js";
+import { minesweeper_ranking_text } from "/games/common/minesweeper_text.js";
 import { renderLeaderboard } from "/games/common/leaderboard.js";
 const gameName = "minisweeper";
 document.title = game_name_text[gameName][lang];
