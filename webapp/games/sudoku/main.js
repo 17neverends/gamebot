@@ -202,7 +202,7 @@ function changeLevel() {
   startTimer();
 }
 
-document.getElementById('difficulty-level').onclick = function() {
+document.getElementById('difficulty_div').onclick = function() {
   changeLevel();
 };
 
@@ -536,8 +536,9 @@ window.onload = async function () {
   await save_init_result();
   create();
   let data = await get_data();
-  renderLeaderboard(data);  
-  document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevel}`;
+  renderLeaderboard(data);
+  currentLevelToDisplay = minesweeper_ranking_text[currentLevel][lang];
+  document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevelToDisplay}`;
   document.addEventListener('keydown', input_value);
 };
 
