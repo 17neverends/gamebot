@@ -1,6 +1,6 @@
 import { lang } from "/games/common/lang.js";
 import { difficulty_text, flags_text, game_name_text } from "/games/common/localize.js";
-import { minesweeper_ranking_text } from "/games/common/minesweeper_text.js";
+import { minesweeper_ranking_text, minesweeper_win_text, minesweeper_lose_text } from "/games/common/minesweeper_text.js";
 import { renderLeaderboard } from "/games/common/leaderboard.js";
 const gameName = "minisweeper";
 document.title = game_name_text[gameName][lang];
@@ -132,7 +132,7 @@ function handleCellClick(row, col) {
     const value = minefield[row][col];
     if (value === "M") {
       revealMines();
-      showModal("Вы проиграли!", false);
+      showModal(minesweeper_lose_text[lang], false);
       save_result(false);
       resetTimer();
     } else {
@@ -208,7 +208,7 @@ function checkVictory() {
   });
 
   if (allCellsProcessed && allMinesFlagged) {
-    showModal("Вы победили!", true);
+    showModal(minesweeper_win_text[lang], true);
     save_result(true);
     resetTimer();
   }
@@ -279,9 +279,7 @@ async function get_data() {
 }
 
 
-async function save_result(status) {
-  console.log("запрос отправлен");
-  
+async function save_result(status) {  
   status = status ? "win" : "lose";
   const result_time = (Date.now() - startTime) / 1000;
   const response = await fetch('/minisweeper/save_result', {
