@@ -1,6 +1,7 @@
 import { lang } from "/games/common/lang.js";
 import { difficulty_text, getWinMessageSudoku, game_name_text } from "/games/common/localize.js";
 import { renderLeaderboard } from "/games/common/leaderboard.js";
+import { minesweeper_ranking_text } from "../common/minesweeper_text";
 const gameName = "sudoku";
 document.title = game_name_text[gameName][lang];
 
@@ -11,6 +12,7 @@ let name;
 let tg_id;
 let entry_date = new Date().toISOString(); 
 let currentLevel = "Легкая";
+let currentLevelToDisplay = minesweeper_ranking_text[currentLevel][lang];
 window.Telegram.WebApp.isClosingConfirmationEnabled = true;
 window.Telegram.WebApp.disableVerticalSwipes();
 window.Telegram.WebApp.requestFullscreen();
@@ -192,6 +194,7 @@ function changeLevel() {
   random = getRandomBoard(currentLevel);
   sudoku = JSON.parse(JSON.stringify(random));
   originalSudoku = JSON.parse(JSON.stringify(random));
+  currentLevelToDisplay = minesweeper_ranking_text[currentLevel][lang];
   document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevel}`;
   resetBoard();
   create();
