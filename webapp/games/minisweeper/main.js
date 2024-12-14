@@ -1,5 +1,5 @@
 import { lang } from "/games/common/lang.js";
-import { difficulty_text, flags_text, game_name_text } from "/games/common/localize.js";
+import { difficulty_text, flags_text, game_name_text, minesweeper_ranking_text } from "/games/common/localize.js";
 import { renderLeaderboard } from "/games/common/leaderboard.js";
 const gameName = "minisweeper";
 document.title = game_name_text[gameName][lang];
@@ -39,11 +39,13 @@ const levels = {
   "Сложная": { size: 8, mines: 15 },
 };
 
+const currentLevelToDisplay = minesweeper_ranking_text[currentLevel][lang];
+
 function changeLevel() {
   const levelKeys = Object.keys(levels);
   const currentIndex = levelKeys.indexOf(currentLevel);
   currentLevel = levelKeys[(currentIndex + 1) % levelKeys.length];
-  document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevel}`;
+  document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevelToDisplay}`;
   resetGame();
 }
 
@@ -253,7 +255,7 @@ window.onload = async function () {
   await save_init_result();
   let data = await get_data();
   renderLeaderboard(data);  
-  document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevel}`;
+  document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevelToDisplay}`;
 };
 
 document.getElementById("flag-count").innerText = `${flags_text[lang]}: 0`;
