@@ -1,7 +1,7 @@
 import { lang } from "/games/common/lang.js";
 import { difficulty_text, getWinMessageSudoku, game_name_text } from "/games/common/localize.js";
 import { renderLeaderboard } from "/games/common/leaderboard.js";
-import { minesweeper_ranking_text } from "../common/minesweeper_text";
+import { minesweeper_ranking_text } from "/games/common/minesweeper_text.js";
 const gameName = "sudoku";
 document.title = game_name_text[gameName][lang];
 
