@@ -195,7 +195,7 @@ function changeLevel() {
   sudoku = JSON.parse(JSON.stringify(random));
   originalSudoku = JSON.parse(JSON.stringify(random));
   currentLevelToDisplay = minesweeper_ranking_text[currentLevel][lang];
-  document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevel}`;
+  document.getElementById('difficulty-level').innerText = `${difficulty_text[lang]}: ${currentLevelToDisplay}`;
   resetBoard();
   create();
   resetTimer();
